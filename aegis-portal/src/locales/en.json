@@ -1,0 +1,152 @@
+{
+  "navigation": {
+    "home": "Home",
+    "features": "Features",
+    "about": "About",
+    "contact": "Contact",
+    "dashboard": "Dashboard",
+    "upload": "Verify",
+    "suppliers": "Suppliers",
+    "login": "Login",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language"
+  },
+  "common": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "submit": "Submit",
+    "clear": "Clear",
+    "search": "Search",
+    "all": "All",
+    "loading": "Loading intelligence workspace",
+    "empty": "No records found.",
+    "success": "Success",
+    "error": "Error",
+    "demoToast": "Open Log in form .",
+    "prototype": "Production-ready prototype",
+    "staticData": "Static project intelligence"
+  },
+  "risk": {
+    "Low": "Good",
+    "Medium": "Review",
+    "High": "High Risk",
+    "lowHelper": "Within normal range",
+    "mediumHelper": "Needs community check",
+    "highHelper": "Priority validation"
+  },
+  "landing": {
+    "eyebrow": "Government-grade infrastructure intelligence",
+    "headline": "AI-Powered Transparency and Infrastructure Intelligence",
+    "description": "AEGIS helps public agencies, communities, and oversight teams monitor infrastructure projects, benchmark costs, verify field reports, and surface risk signals with clarity.",
+    "previewTitle": "Live transparency console",
+    "previewSubtitle": "Davao Region project watch",
+    "heroStatOne": "Projects monitored",
+    "heroStatTwo": "Risk alerts",
+    "heroStatThree": "Verified reports",
+    "featuresTitle": "Enterprise intelligence for public works",
+    "featuresDescription": "A modular platform designed for transparent project monitoring, supplier visibility, and AI-assisted accountability.",
+    "howTitle": "How AEGIS works",
+    "howDescription": "From raw project data to citizen-ready intelligence in a secure review flow.",
+    "statsTitle": "Built for measurable public accountability",
+    "aboutTitle": "Transparency infrastructure for the next generation of public works",
+    "aboutDescription": "AEGIS exists to make infrastructure spending easier to understand, verify, and improve. The platform converts project records, citizen evidence, and market benchmarks into decision-ready insights for agencies and communities.",
+    "testimonialsTitle": "Designed for teams that need trust at scale",
+    "contactTitle": "Ready to modernize infrastructure oversight?",
+    "contactDescription": "Deploy AEGIS for project monitoring, price benchmarking, and public transparency workflows."
+  },
+  "features": {
+    "monitoring": { "title": "Infrastructure Monitoring", "description": "Track contract values, schedule slippage, locations, and project status in a unified command center." },
+    "benchmarking": { "title": "Market Price Benchmarking", "description": "Compare declared material costs against local baselines to identify pricing outliers early." },
+    "supplier": { "title": "Supplier Intelligence", "description": "Map contractors, materials, and procurement signals across active public works packages." },
+    "geo": { "title": "Geo-tagged Verification", "description": "Prepare field reports for precise location-aware validation during on-site inspections." },
+    "aiRisk": { "title": "AI Risk Detection", "description": "Convert cost, progress, and citizen signals into clear risk explanations for reviewers." },
+    "transparency": { "title": "Transparency Dashboard", "description": "Give stakeholders a clean, accessible view of public infrastructure performance." },
+    "analytics": { "title": "Analytics & Reporting", "description": "Generate executive-ready summaries for agencies, NGOs, and presentation teams." },
+    "tracking": { "title": "Project Tracking", "description": "Follow each project from budget approval through implementation and verification." }
+  },
+  "workflow": {
+    "collect": "Data Collection",
+    "verify": "Verification",
+    "analyze": "AI Analysis",
+    "insights": "Insights Generation",
+    "reporting": "Transparency Reporting"
+  },
+  "stats": {
+    "projects": "Projects Monitored",
+    "reports": "Reports Generated",
+    "verified": "Verified Entries",
+    "alerts": "Risk Alerts Identified"
+  },
+  "testimonials": {
+    "oneQuote": "AEGIS makes complex project records understandable without losing the audit trail.",
+    "oneName": "Program Monitoring Lead",
+    "oneRole": "Infrastructure Oversight Team",
+    "twoQuote": "The risk cards are exactly the kind of field-first view our reviewers need.",
+    "twoName": "Civic Technology Advisor",
+    "twoRole": "Transparency Initiative"
+  },
+  "dashboard": {
+    "title": "Infrastructure intelligence dashboard",
+    "description": "Monitor DPWH project risk, budget deviation, material variance, and citizen verification signals from one secure console.",
+    "searchLabel": "Search projects",
+    "searchPlaceholder": "Contract ID, barangay, contractor, road section",
+    "trackedProjects": "Tracked projects",
+    "contractValue": "Contract value",
+    "citizenSignals": "Citizen signals",
+    "loadedFrom": "Loaded from projects.json",
+    "prototypeRecords": "Across prototype records",
+    "highRiskFlagged": "high-risk projects flagged",
+    "projectDetail": "Project intelligence",
+    "contractAmount": "Contract amount",
+    "costDeviation": "Cost deviation",
+    "scheduleSlippage": "Schedule slippage",
+    "lastUpdate": "Last update",
+    "materialWatchlist": "Material watchlist",
+    "verifyProject": "Verify this project"
+  },
+  "upload": {
+    "title": "Upload a field verification report",
+    "description": "Capture site evidence, attach it to a nearby project, and add quick notes for review.",
+    "nearbyProject": "Nearby project",
+    "selectProject": "Choose a nearby DPWH project",
+    "photoEvidence": "Photo evidence",
+    "openCamera": "Open camera or choose photo",
+    "photoHint": "Field evidence preview appears below",
+    "notes": "Notes",
+    "notesPlaceholder": "Describe progress, delays, site condition, materials, workers, safety, or public access issues.",
+    "submissionPreview": "Submission preview",
+    "selectedProject": "Selected project",
+    "notSelected": "Not selected",
+    "photo": "Photo",
+    "attached": "Attached",
+    "missing": "Missing",
+    "characters": "chars",
+    "successMessage": "Report captured for prototype review. Phase 2 will add geolocation and offline queueing."
+  },
+  "suppliers": {
+    "title": "Supplier and material intelligence",
+    "description": "Compare declared unit costs against local baselines for cement, steel, pavement, drainage, and earthworks items.",
+    "materialLines": "Material lines",
+    "averageVariance": "Average variance",
+    "flaggedItems": "Flagged items",
+    "searchLabel": "Search material pricing",
+    "searchPlaceholder": "Cement, steel, riprap, project location",
+    "declared": "Declared",
+    "baseline": "Local baseline",
+    "quantity": "Quantity",
+    "filters": {
+      "cement": "Cement",
+      "steel": "Steel",
+      "pavement": "Pavement",
+      "earthworks": "Earthworks"
+    }
+  },
+  "footer": {
+    "tagline": "AI-powered transparency for infrastructure programs.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "social": "Social",
+    "rights": "All rights reserved."
+  }
+}

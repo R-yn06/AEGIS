@@ -1,0 +1,303 @@
+[
+  {
+    "contract_id": "24L00015",
+    "project_title": "Widening of Daang Maharlika (MN) - K1502+200 to K1504+100, Davao City",
+    "implementing_office": "Davao City District Engineering Office",
+    "location": "Buhangin District, Davao City",
+    "category_of_work": "Road Widening",
+    "approved_budget_contract": 34000000.00,
+    "contract_amount": 32950000.00,
+    "physical_target": "1.900 km",
+    "slippage_percent": 3.4,
+    "contractor": "Davao Southern Summit Tools & Supply",
+    "last_updated": "2026-06-09",
+    "geospatial": {
+      "latitude": 7.1124,
+      "longitude": 125.6148,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 17342105.26,
+    "regional_baseline_unit_cost": 18200000.00,
+    "cost_deviation_percent": -4.7,
+    "risk_classification": "Low",
+    "ui_theme": "emerald",
+    "ai_engine_analysis": "Project is operating securely within historical baseline parameters. Positive physical slippage indicates construction milestones are advancing ahead of the targeted agency schedule with no budgetary anomalies detected.",
+    "citizen_upload_count": 2,
+    "bill_of_quantities_materials": [
+      { "item_code": "200(1)", "description": "Aggregate Subbase Course", "unit": "cu.m", "quantity": 2350, "unit_cost_declared": 910.00, "baseline_unit_cost": 950.00, "item_deviation_percent": -4.2 },
+      { "item_code": "311(1)c1", "description": "Portland Cement Concrete Pavement (Unreinforced, 0.23m thick)", "unit": "sq.m", "quantity": 12200, "unit_cost_declared": 1420.00, "baseline_unit_cost": 1480.00, "item_deviation_percent": -4.0 }
+    ]
+  },
+  {
+    "contract_id": "24L00105",
+    "project_title": "Construction of Flood Mitigation Structure along Lipadas River (Upstream Section), Davao City",
+    "implementing_office": "Davao City 2nd District Engineering Office",
+    "location": "Toril District, Davao City",
+    "category_of_work": "Flood Control and Drainage",
+    "approved_budget_contract": 48250000.00,
+    "contract_amount": 47100000.00,
+    "physical_target": "1.050 km",
+    "slippage_percent": 1.2,
+    "contractor": "RELY Construction and Supply",
+    "last_updated": "2026-06-12",
+    "geospatial": {
+      "latitude": 7.0125,
+      "longitude": 125.4843,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 44857142.85,
+    "regional_baseline_unit_cost": 43000000.00,
+    "cost_deviation_percent": 4.3,
+    "risk_classification": "Low",
+    "ui_theme": "emerald",
+    "ai_engine_analysis": "Financial outlays and structural dimensions scale safely inside regional tracking bounds. Active project tracking and community validation confirm site deployment matches official data records.",
+    "citizen_upload_count": 1,
+    "bill_of_quantities_materials": [
+      { "item_code": "404(1)a", "description": "Reinforcing Steel (Grade 40)", "unit": "kg", "quantity": 18450, "unit_cost_declared": 72.50, "baseline_unit_cost": 70.00, "item_deviation_percent": 3.5 },
+      { "item_code": "506(1)", "description": "Stone Masonry / Grouted Riprap", "unit": "cu.m", "quantity": 3800, "unit_cost_declared": 3850.00, "baseline_unit_cost": 3700.00, "item_deviation_percent": 4.0 }
+    ]
+  },
+  {
+    "contract_id": "23L00214",
+    "project_title": "Widening of Davao-Cotabato Road (Jct. Bangkal-Puan Section)",
+    "implementing_office": "DPWH Region XI Regional Office",
+    "location": "Bangkal, Davao City",
+    "category_of_work": "Road Widening",
+    "approved_budget_contract": 96500000.00,
+    "contract_amount": 93605000.00,
+    "physical_target": "2.450 km",
+    "slippage_percent": -6.5,
+    "contractor": "Alfrego Builders & Supply",
+    "last_updated": "2026-05-29",
+    "geospatial": {
+      "latitude": 7.0431,
+      "longitude": 125.5562,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 38206122.44,
+    "regional_baseline_unit_cost": 34500000.00,
+    "cost_deviation_percent": 10.7,
+    "risk_classification": "Medium",
+    "ui_theme": "amber",
+    "ai_engine_analysis": "Asset profile reveals minor delays. The trailing physical progress (-6.5% slippage) combined with a moderate 10.7% unit cost deviation flags this project for community oversight regarding right-of-way challenges.",
+    "citizen_upload_count": 9,
+    "bill_of_quantities_materials": [
+      { "item_code": "101(3)b2", "description": "Removal of Actual Structures (0.20m thick PCCP)", "unit": "sq.m", "quantity": 4500, "unit_cost_declared": 195.00, "baseline_unit_cost": 160.00, "item_deviation_percent": 21.8 },
+      { "item_code": "311(1)e1", "description": "Portland Cement Concrete Pavement (Unreinforced, 0.28m thick)", "unit": "sq.m", "quantity": 16400, "unit_cost_declared": 1980.00, "baseline_unit_cost": 1850.00, "item_deviation_percent": 7.0 }
+    ]
+  },
+  {
+    "contract_id": "26L00002",
+    "project_title": "Davao-Bukidnon Road (Jct. Marahan)-Gumitan-Jct. Fatima-Malabog Road, Barangay Marilog Proper Section",
+    "implementing_office": "DPWH Region XI Regional Office",
+    "location": "Marilog District, Davao City",
+    "category_of_work": "Roads (Agri-Infrastructure)",
+    "approved_budget_contract": 50000000.00,
+    "contract_amount": 48900000.00,
+    "physical_target": "2.800 km",
+    "slippage_percent": -2.1,
+    "contractor": "Mindanao Rock and Soil Architecture Corp.",
+    "last_updated": "2026-06-01",
+    "geospatial": {
+      "latitude": 7.4479,
+      "longitude": 125.2633,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 17464285.71,
+    "regional_baseline_unit_cost": 15200000.00,
+    "cost_deviation_percent": 14.8,
+    "risk_classification": "Medium",
+    "ui_theme": "amber",
+    "ai_engine_analysis": "Unit cost trends 14.8% above standard flat-terrain baseline allocations, which is partially justified by mountainous terrain geography. Flagged as Medium Risk to prompt citizen verification of structural laying quality.",
+    "citizen_upload_count": 4,
+    "bill_of_quantities_materials": [
+      { "item_code": "103(1)a", "description": "Structure Excavation (Common Soil in Mountainous Terrain)", "unit": "cu.m", "quantity": 5200, "unit_cost_declared": 320.00, "baseline_unit_cost": 260.00, "item_deviation_percent": 23.0 },
+      { "item_code": "311(1)c1", "description": "Portland Cement Concrete Pavement (Unreinforced, 0.23m thick)", "unit": "sq.m", "quantity": 18200, "unit_cost_declared": 1610.00, "baseline_unit_cost": 1480.00, "item_deviation_percent": 8.7 }
+    ]
+  },
+  {
+    "contract_id": "24L00018",
+    "project_title": "Construction of Road, Jct. Daang Maharlika to Asuncion-San Isidro-Laak-Veruela Road (Davao del Norte Section)",
+    "implementing_office": "DPWH Region XI Regional Office",
+    "location": "Asuncion, Davao del Norte",
+    "category_of_work": "Roads (Agri-Infrastructure)",
+    "approved_budget_contract": 72375000.00,
+    "contract_amount": 70155000.00,
+    "physical_target": "3.120 km",
+    "slippage_percent": -14.8,
+    "contractor": "Ulticon Builders, Inc.",
+    "last_updated": "2026-06-05",
+    "geospatial": {
+      "latitude": 7.5518,
+      "longitude": 125.6834,
+      "region": "Region XI",
+      "province": "Davao del Norte"
+    },
+    "calculated_unit_cost": 22485576.92,
+    "regional_baseline_unit_cost": 16500000.00,
+    "cost_deviation_percent": 36.2,
+    "risk_classification": "High",
+    "ui_theme": "rose",
+    "ai_engine_analysis": "Critical structural alert. Project exhibits substantial negative physical slippage exceeding the 10% agency emergency threshold (-14.8%), paired with a severe 36.2% asset cost inflation over regional procurement benchmarks.",
+    "citizen_upload_count": 18,
+    "bill_of_quantities_materials": [
+      { "item_code": "104(2)a", "description": "Embankment from Borrow (Common Soil)", "unit": "cu.m", "quantity": 8400, "unit_cost_declared": 890.00, "baseline_unit_cost": 580.00, "item_deviation_percent": 53.4 },
+      { "item_code": "311(1)c1", "description": "Portland Cement Concrete Pavement (Unreinforced, 0.23m thick)", "unit": "sq.m", "quantity": 21000, "unit_cost_declared": 2150.00, "baseline_unit_cost": 1480.00, "item_deviation_percent": 45.2 }
+    ]
+  },
+  {
+    "contract_id": "24L00311",
+    "project_title": "Rehabilitation of Davao River Bridge Approaches, Bolton Extension Section",
+    "implementing_office": "Davao City District Engineering Office",
+    "location": "Poblacion District, Davao City",
+    "category_of_work": "Bridge Approach Rehabilitation",
+    "approved_budget_contract": 28500000.00,
+    "contract_amount": 27670000.00,
+    "physical_target": "0.420 km",
+    "slippage_percent": 0.8,
+    "contractor": "Madayaw Civil Works and Supply",
+    "last_updated": "2026-06-07",
+    "geospatial": {
+      "latitude": 7.0715,
+      "longitude": 125.6104,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 65880952.38,
+    "regional_baseline_unit_cost": 64100000.00,
+    "cost_deviation_percent": 2.8,
+    "risk_classification": "Low",
+    "ui_theme": "emerald",
+    "ai_engine_analysis": "Bridge approach costs are close to the local rehabilitation baseline. Work progress is slightly ahead of target and citizen report volume remains low.",
+    "citizen_upload_count": 3,
+    "bill_of_quantities_materials": [
+      { "item_code": "404(1)b", "description": "Reinforcing Steel (Grade 60)", "unit": "kg", "quantity": 6420, "unit_cost_declared": 78.00, "baseline_unit_cost": 76.00, "item_deviation_percent": 2.6 },
+      { "item_code": "405(1)a3", "description": "Structural Concrete Class A", "unit": "cu.m", "quantity": 620, "unit_cost_declared": 7420.00, "baseline_unit_cost": 7300.00, "item_deviation_percent": 1.6 }
+    ]
+  },
+  {
+    "contract_id": "25L00044",
+    "project_title": "Construction of Multi-Purpose Evacuation Road, Barangay Bago Aplaya",
+    "implementing_office": "Davao City 1st District Engineering Office",
+    "location": "Bago Aplaya, Davao City",
+    "category_of_work": "Local Road Construction",
+    "approved_budget_contract": 39200000.00,
+    "contract_amount": 38125000.00,
+    "physical_target": "1.380 km",
+    "slippage_percent": -4.6,
+    "contractor": "Matina Builders Cooperative",
+    "last_updated": "2026-06-04",
+    "geospatial": {
+      "latitude": 7.0492,
+      "longitude": 125.5417,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 27626811.59,
+    "regional_baseline_unit_cost": 25300000.00,
+    "cost_deviation_percent": 9.2,
+    "risk_classification": "Medium",
+    "ui_theme": "amber",
+    "ai_engine_analysis": "Moderate schedule lag and a near-10% cost deviation suggest the project should remain visible for barangay-level validation.",
+    "citizen_upload_count": 7,
+    "bill_of_quantities_materials": [
+      { "item_code": "200(1)", "description": "Aggregate Subbase Course", "unit": "cu.m", "quantity": 1740, "unit_cost_declared": 1040.00, "baseline_unit_cost": 950.00, "item_deviation_percent": 9.5 },
+      { "item_code": "311(1)c1", "description": "Portland Cement Concrete Pavement (Unreinforced, 0.23m thick)", "unit": "sq.m", "quantity": 9100, "unit_cost_declared": 1650.00, "baseline_unit_cost": 1480.00, "item_deviation_percent": 11.5 }
+    ]
+  },
+  {
+    "contract_id": "24L00402",
+    "project_title": "Improvement of Drainage System along J.P. Laurel Avenue Service Road",
+    "implementing_office": "Davao City District Engineering Office",
+    "location": "Bajada, Davao City",
+    "category_of_work": "Urban Drainage",
+    "approved_budget_contract": 61800000.00,
+    "contract_amount": 60280000.00,
+    "physical_target": "1.760 km",
+    "slippage_percent": -1.8,
+    "contractor": "Northern Mindanao Concrete Products",
+    "last_updated": "2026-06-10",
+    "geospatial": {
+      "latitude": 7.0911,
+      "longitude": 125.6126,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 34250000.00,
+    "regional_baseline_unit_cost": 33100000.00,
+    "cost_deviation_percent": 3.5,
+    "risk_classification": "Low",
+    "ui_theme": "emerald",
+    "ai_engine_analysis": "Drainage package is tracking close to baseline and has no severe schedule or unit-cost variance.",
+    "citizen_upload_count": 5,
+    "bill_of_quantities_materials": [
+      { "item_code": "500(1)b", "description": "Pipe Culverts, 910mm Diameter", "unit": "ln.m", "quantity": 520, "unit_cost_declared": 6800.00, "baseline_unit_cost": 6650.00, "item_deviation_percent": 2.3 },
+      { "item_code": "506(1)", "description": "Stone Masonry / Grouted Riprap", "unit": "cu.m", "quantity": 1450, "unit_cost_declared": 3620.00, "baseline_unit_cost": 3700.00, "item_deviation_percent": -2.2 }
+    ]
+  },
+  {
+    "contract_id": "26L00077",
+    "project_title": "Preventive Maintenance of Davao City Diversion Road, Maa to Buhangin Segment",
+    "implementing_office": "DPWH Region XI Regional Office",
+    "location": "Maa and Buhangin, Davao City",
+    "category_of_work": "Road Maintenance",
+    "approved_budget_contract": 84500000.00,
+    "contract_amount": 82720000.00,
+    "physical_target": "4.600 km",
+    "slippage_percent": 2.7,
+    "contractor": "Region XI Asphalt and Aggregates Corp.",
+    "last_updated": "2026-06-11",
+    "geospatial": {
+      "latitude": 7.1006,
+      "longitude": 125.5891,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 17982608.70,
+    "regional_baseline_unit_cost": 18500000.00,
+    "cost_deviation_percent": -2.8,
+    "risk_classification": "Low",
+    "ui_theme": "emerald",
+    "ai_engine_analysis": "Preventive maintenance unit cost is slightly below the corridor baseline and progress is ahead of schedule.",
+    "citizen_upload_count": 6,
+    "bill_of_quantities_materials": [
+      { "item_code": "310(1)c", "description": "Bituminous Concrete Surface Course", "unit": "MT", "quantity": 2780, "unit_cost_declared": 5250.00, "baseline_unit_cost": 5400.00, "item_deviation_percent": -2.8 },
+      { "item_code": "307(1)", "description": "Bituminous Tack Coat", "unit": "liter", "quantity": 18400, "unit_cost_declared": 68.00, "baseline_unit_cost": 70.00, "item_deviation_percent": -2.9 }
+    ]
+  },
+  {
+    "contract_id": "ANOM-TEST-001",
+    "project_title": "Prototype Anomaly: Barangay Access Road with Extreme Material Variance",
+    "implementing_office": "AEGIS Test Dataset",
+    "location": "Calinan District, Davao City",
+    "category_of_work": "Anomaly Test Case",
+    "approved_budget_contract": 42000000.00,
+    "contract_amount": 41950000.00,
+    "physical_target": "0.850 km",
+    "slippage_percent": -22.4,
+    "contractor": "Test Contractor for Demo",
+    "last_updated": "2026-06-13",
+    "geospatial": {
+      "latitude": 7.1859,
+      "longitude": 125.4553,
+      "region": "Region XI",
+      "province": "Davao del Sur"
+    },
+    "calculated_unit_cost": 49352941.18,
+    "regional_baseline_unit_cost": 18500000.00,
+    "cost_deviation_percent": 166.8,
+    "risk_classification": "High",
+    "ui_theme": "rose",
+    "ai_engine_analysis": "Synthetic anomaly for prototype testing. The record combines severe schedule slippage with an extreme unit-cost deviation so reviewers can see how the red-flag workflow behaves.",
+    "citizen_upload_count": 24,
+    "anomaly_note": "Demo anomaly: intentionally extreme budget and material variance for testing red-flag UI states.",
+    "bill_of_quantities_materials": [
+      { "item_code": "311(1)c1", "description": "Portland Cement Concrete Pavement (Unreinforced, 0.23m thick)", "unit": "sq.m", "quantity": 5600, "unit_cost_declared": 3900.00, "baseline_unit_cost": 1480.00, "item_deviation_percent": 163.5 },
+      { "item_code": "404(1)a", "description": "Reinforcing Steel (Grade 40)", "unit": "kg", "quantity": 3200, "unit_cost_declared": 185.00, "baseline_unit_cost": 70.00, "item_deviation_percent": 164.3 }
+    ]
+  }
+]

@@ -1,0 +1,154 @@
+{
+ "navigation": {
+   "home": "Home",
+   "features": "Mga Tampok",
+   "about": "Tungkol",
+   "contact": "Kontak",
+   "dashboard": "Dashbord",
+   "upload": "Beripikahin",
+   "suppliers": "Supplier",
+   "login": "Mag-login",
+   "menu": "Menu",
+   "close": "Isara",
+   "language": "Wika"
+ },
+ "common": {
+   "getStarted": "Magsimula",
+   "learnMore": "Alamin Pa",
+   "submit": "Ipasa",
+   "clear": "Linisin",
+   "search": "Maghanap",
+   "all": "Lahat",
+   "loading": "Naglo-load ng intelligence workspace",
+   "empty": "Walang nahanap na rekord.",
+   "success": "Tagumpay",
+   "error": "Mali",
+   "demoToast": "for phase 2 .",
+   "prototype": "Production-ready prototype",
+   "staticData": "Static project intelligence"
+ },
+ "risk": {
+   "Low": "Maayos",
+   "Medium": "Suriin",
+   "High": "Mataas ang Panganib",
+   "lowHelper": "Nasa normal na saklaw",
+   "mediumHelper": "Kailangan ng pagsusuri ng komunidad",
+   "highHelper": "Unahin ang beripikasyon"
+ },
+ "landing": {
+   "eyebrow": "Government-grade infrastructure intelligence",
+   "headline": "AI-Powered Transparency and Infrastructure Intelligence",
+   "description": "Tinutulungan ng AEGIS ang ahensya, komunidad, at oversight teams na subaybayan ang imprastraktura, ikumpara ang gastos, beripikahin ang field reports, at makita ang risk signals.",
+   "previewTitle": "Live transparency console",
+   "previewSubtitle": "Davao Region project watch",
+   "heroStatOne": "Proyektong sinusubaybayan",
+   "heroStatTwo": "Risk alerts",
+   "heroStatThree": "Mga beripikadong ulat",
+   "featuresTitle": "Enterprise intelligence para sa public works",
+   "featuresDescription": "Modular na platform para sa transparent project monitoring, supplier visibility, at AI-assisted accountability.",
+   "howTitle": "Paano gumagana ang AEGIS",
+   "howDescription": "Mula raw project data hanggang citizen-ready intelligence sa secure review flow.",
+   "statsTitle": "Ginawa para sa nasusukat na public accountability",
+   "aboutTitle": "Transparency infrastructure para sa susunod na henerasyon ng public works",
+   "aboutDescription": "Layunin ng AEGIS na gawing mas madaling maintindihan, ma-verify, at mapabuti ang infrastructure spending. Ginagawa nitong decision-ready insights ang project records, citizen evidence, at market benchmarks.",
+   "testimonialsTitle": "Dinisenyo para sa teams na kailangan ng tiwala sa malaking saklaw",
+   "contactTitle": "Handa nang gawing moderno ang infrastructure oversight?",
+   "contactDescription": "I-deploy ang AEGIS para sa pagmamanman ng mga proyekto, pagtutumbas ng presyo, at mga daloy ng pampublikong transparensya."
+ },
+ "features": {
+   "monitoring": { "title": "Pagsubaybay sa Imprastruktura", "description": "Subaybayan ang halaga ng kontrata, pagkaantala sa iskedyul, lokasyon, at status ng proyekto sa iisang command center." },
+   "benchmarking": { "title": "Pagtutumbas ng Presyo sa Merkado", "description": "Ikumpara ang declared material costs sa local baselines para makita agad ang outliers." },
+   "supplier": { "title": "Supplier Intelligence", "description": "I-map ang contractors, materials, at procurement signals sa active public works packages." },
+   "geo": { "title": "Geo-tagged Verification", "description": "Ihanda ang field reports para sa precise location-aware validation sa site inspections." },
+   "aiRisk": { "title": "AI Risk Detection", "description": "Gawing malinaw na risk explanations ang cost, progress, at citizen signals." },
+   "transparency": { "title": "Transparency Dashboard", "description": "Bigyan ang stakeholders ng malinis at accessible na view ng infrastructure performance." },
+   "analytics": { "title": "Analytics & Reporting", "description": "Gumawa ng executive-ready summaries para sa agencies, NGOs, at presentation teams." },
+   "tracking": { "title": "Project Tracking", "description": "Sundan ang bawat proyekto mula budget approval hanggang implementation at verification." }
+ },
+ "workflow": {
+   "collect": "Pagkolekta ng Datos",
+   "verify": "Beripikasyon",
+   "analyze": "AI na Pagsusuri ",
+   "insights": "Pagbuo ng Insight",
+   "reporting": "Ulat sa Transparensya"
+ },
+ "stats": {
+   "projects": "Proyektong Sinusubaybayan",
+   "reports": "Ulat na Nagawa",
+   "verified": "Mga Beripikadong Entry",
+   "alerts": "Risk Alerts na Natukoy"
+ },
+ "testimonials": {
+   "oneQuote": "Ginagawa ng AEGIS na madaling maintindihan ang complex project records habang buo ang audit trail.",
+   "oneName": "Pangunahing Tagapamahala sa Monitoring ng Programa",
+   "oneRole": "Grupo sa Pagsubaybay ng Imprastruktura",
+   "twoQuote": "Ang risk cards ang field-first view na kailangan ng reviewers.",
+   "twoName": "Tagapayo sa Teknolohiyang Pambayan",
+   "twoRole": "Inisyatibo para sa Transparensya"
+ },
+ "dashboard": {
+   "title": "Infrastructure intelligence dashboard",
+   "description": "Subaybayan ang DPWH project risk, budget deviation, material variance, at citizen verification signals sa isang secure console.",
+   "searchLabel": "Maghanap ng proyekto",
+   "searchPlaceholder": "ID ng Kontrata, barangay, Kontratista, Seksyon ng Kalsada ",
+   "trackedProjects": "Mga Sinusubaybayang Proyekto",
+   "contractValue": "Halaga ng Kontrata",
+   "citizenSignals": "Mga Ulat ng Mamamayan",
+   "loadedFrom": "Loaded from projects.json",
+   "prototypeRecords": "Sa lahat ng prototype records",
+   "highRiskFlagged": "high-risk projects ang naka-flag",
+   "projectDetail": "Project intelligence",
+   "contractAmount": "Halaga ng Kontrata",
+   "costDeviation": "Paglihis sa Gastos",
+   "scheduleSlippage": "Pagkaantala sa Iskedyul",
+   "lastUpdate": "Huling update",
+   "materialWatchlist": "Material watchlist",
+   "verifyProject": "Beripikahin ang proyektong ito"
+ },
+ "upload": {
+   "title": "Mag-upload ng field verification report",
+   "description": "Kumuha ng site evidence, ikabit sa nearby project, at magdagdag ng maikling notes para sa review.",
+   "nearbyProject": "Nearby project",
+   "selectProject": "Pumili ng malapit na DPWH project",
+   "photoEvidence": "Photo evidence",
+   "openCamera": "Buksan ang camera o pumili ng larawan",
+   "photoHint": "Lalabas ang preview sa ibaba",
+   "notes": "Notes",
+   "notesPlaceholder": "Ilarawan ang progreso, delay, site condition, materials, workers, safety, o public access issues.",
+   "submissionPreview": "Submission preview",
+   "selectedProject": "Napiling proyekto",
+   "notSelected": "Wala pang napili",
+   "photo": "Larawan",
+   "attached": "Naka-attach",
+   "missing": "Wala pa",
+   "characters": "chars",
+   "successMessage": "Nakuha ang report para sa prototype review. Sa Phase 2 idaragdag ang geolocation at offline queueing."
+ },
+ "suppliers": {
+   "title": "Supplier at material intelligence",
+   "description": "Ikumpara ang declared unit costs sa local baselines para sa cement, steel, pavement, drainage, at earthworks items.",
+   "materialLines": "Mga linya ng materyales",
+   "averageVariance": "Karaniwang paglihis",
+   "flaggedItems": "Mga natukoy na item",
+   "searchLabel": "Maghanap ng material pricing",
+   "searchPlaceholder": "Semento, bakal, riprap, lokasyon ng proyekto",
+   "declared": "Idineklara",
+   "baseline": "Lokal na batayan",
+   "quantity": "Dami",
+   "filters": {
+     "cement": "Semento",
+     "steel": "Bakal",
+     "pavement": "Kalsadang sementado",
+     "earthworks": "Earthworks"
+   }
+ },
+ "footer": {
+   "tagline": "AI-powered transparency para sa infrastructure programs.",
+   "quickLinks": "Quick Links",
+   "contact": "Kontak",
+   "social": "Social",
+   "rights": "All rights reserved."
+ }
+}
+
+
