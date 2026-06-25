@@ -1,0 +1,734 @@
+{
+    "25LH0051_Carmen": [
+        {
+            "Item No.": "B.4 (1)",
+            "Description": "Construction Survey and Staking",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "18,760.00",
+            "Total Amount (P)": "18,760.00"
+        },
+        {
+            "Item No.": "B.5",
+            "Description": "Project Billboard/Signboard",
+            "Qty.": "2.00",
+            "Unit": "each",
+            "Unit Cost (P)": "7,370.00",
+            "Total Amount (P)": "14,740.00"
+        },
+        {
+            "Item No.": "B.7(2)",
+            "Description": "Occupational Safety and Health Program",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "26,800.00",
+            "Total Amount (P)": "26,800.00"
+        },
+        {
+            "Item No.": "B.9",
+            "Description": "Mobilization/Demobilization",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "45,966.24",
+            "Total Amount (P)": "45,966.24"
+        },
+        {
+            "Item No.": "900(1)b1",
+            "Description": "Structural Concrete, Class \"A\" (14 Days)",
+            "Qty.": "0.57",
+            "Unit": "cu.m.",
+            "Unit Cost (P)": "10,388.07",
+            "Total Amount (P)": "5,892.70"
+        },
+        {
+            "Item No.": "1602(5)",
+            "Description": "Polyethylene (PE) Plastic Pipe",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "22,780.00",
+            "Total Amount (P)": "22,780.00"
+        },
+        {
+            "Item No.": "1002(21)",
+            "Description": "Faucet",
+            "Qty.": "3.00",
+            "Unit": "pc.",
+            "Unit Cost (P)": "2,948.00",
+            "Total Amount (P)": "8,844.00"
+        },
+        {
+            "Item No.": "1002(13)",
+            "Description": "Slop Sink, Complete",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "5,628.00",
+            "Total Amount (P)": "16,884.00"
+        },
+        {
+            "Item No.": "1201(9)c",
+            "Description": "Overhead Tank (Polyethylene)",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "30,250.00",
+            "Total Amount (P)": "90,750.00"
+        },
+        {
+            "Item No.": "1001(1)a1",
+            "Description": "50mm PVC Pipes and Fittings",
+            "Qty.": "9.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,089.00",
+            "Total Amount (P)": "9,801.00"
+        },
+        {
+            "Item No.": "1001(1)a2",
+            "Description": "75mm PVC Pipes and Fittings",
+            "Qty.": "40.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,331.00",
+            "Total Amount (P)": "53,240.00"
+        },
+        {
+            "Item No.": "1013(2)b1",
+            "Description": "Fabricated Metal Roofing Accessory (Gutter)",
+            "Qty.": "54.00",
+            "Unit": "l.m.",
+            "Unit Cost (P)": "648.56",
+            "Total Amount (P)": "35,022.24"
+        },
+        {
+            "Item No.": "1032(1)c",
+            "Description": "Painting Works (Steel)",
+            "Qty.": "41.11",
+            "Unit": "sq.m.",
+            "Unit Cost (P)": "489.10",
+            "Total Amount (P)": "20,106.90"
+        },
+        {
+            "Item No.": "1047(6)",
+            "Description": "Structural Steel (Steel Platform)",
+            "Qty.": "508.56",
+            "Unit": "kg",
+            "Unit Cost (P)": "116.58",
+            "Total Amount (P)": "59,287.92"
+        },
+        {
+            "Item No.": "",
+            "Description": "SUB-TOTAL",
+            "Qty.": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": "428,875.00"
+        }
+    ],
+    "25LH0051_INA": [
+        {
+            "Item No.": "B.4 (1)",
+            "Description": "Construction Survey and Staking",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "18,760.00",
+            "Total Amount (P)": "18,760.00"
+        },
+        {
+            "Item No.": "B.5",
+            "Description": "Project Billboard/Signboard",
+            "Qty.": "2.00",
+            "Unit": "each",
+            "Unit Cost (P)": "7,370.00",
+            "Total Amount (P)": "14,740.00"
+        },
+        {
+            "Item No.": "B.7(2)",
+            "Description": "Occupational Safety and Health Program",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "26,800.00",
+            "Total Amount (P)": "26,800.00"
+        },
+        {
+            "Item No.": "B.9",
+            "Description": "Mobilization/Demobilization",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "45,966.24",
+            "Total Amount (P)": "45,966.24"
+        },
+        {
+            "Item No.": "900(1)b1",
+            "Description": "Structural Concrete, Class \"A\" (14 Days)",
+            "Qty.": "0.57",
+            "Unit": "cu.m.",
+            "Unit Cost (P)": "10,338.07",
+            "Total Amount (P)": "5,892.70"
+        },
+        {
+            "Item No.": "1602(5)",
+            "Description": "Polyethylene (PE) Plastic Pipe",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "22,780.00",
+            "Total Amount (P)": "22,780.00"
+        },
+        {
+            "Item No.": "1002(21)",
+            "Description": "Faucet",
+            "Qty.": "3.00",
+            "Unit": "pc.",
+            "Unit Cost (P)": "2,948.00",
+            "Total Amount (P)": "8,844.00"
+        },
+        {
+            "Item No.": "1002(13)",
+            "Description": "Slop Sink, Complete",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "5,628.00",
+            "Total Amount (P)": "16,884.00"
+        },
+        {
+            "Item No.": "1201(9)c",
+            "Description": "Overhead Tank (Polyethylene)",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "30,250.00",
+            "Total Amount (P)": "90,750.00"
+        },
+        {
+            "Item No.": "1001(1)a1",
+            "Description": "50mm PVC Pipes and Fittings",
+            "Qty.": "9.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,089.00",
+            "Total Amount (P)": "9,801.00"
+        },
+        {
+            "Item No.": "1001(1)a2",
+            "Description": "75mm PVC Pipes and Fittings",
+            "Qty.": "40.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,331.00",
+            "Total Amount (P)": "53,240.00"
+        },
+        {
+            "Item No.": "1013(2)b1",
+            "Description": "Fabricated Metal Roofing Accessory (Gutter)",
+            "Qty.": "54.00",
+            "Unit": "l.m.",
+            "Unit Cost (P)": "648.56",
+            "Total Amount (P)": "35,022.24"
+        },
+        {
+            "Item No.": "1032(1)c",
+            "Description": "Painting Works (Steel)",
+            "Qty.": "41.11",
+            "Unit": "sq.m.",
+            "Unit Cost (P)": "489.10",
+            "Total Amount (P)": "20,106.90"
+        },
+        {
+            "Item No.": "1047(6)",
+            "Description": "Structural Steel (Steel Platform)",
+            "Qty.": "508.56",
+            "Unit": "kg",
+            "Unit Cost (P)": "116.58",
+            "Total Amount (P)": "59,287.92"
+        },
+        {
+            "Item No.": "",
+            "Description": "SUB-TOTAL",
+            "Qty.": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": "428,875.00"
+        }
+    ],
+    "25LH0051_MALUAN": [
+        {
+            "Item No.": "B.4 (1)",
+            "Description": "Construction Survey and Staking",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "18,760.00",
+            "Total Amount (P)": "18,760.00"
+        },
+        {
+            "Item No.": "B.5",
+            "Description": "Project Billboard/Signboard",
+            "Qty.": "2.00",
+            "Unit": "each",
+            "Unit Cost (P)": "7,370.00",
+            "Total Amount (P)": "14,740.00"
+        },
+        {
+            "Item No.": "B.7(2)",
+            "Description": "Occupational Safety and Health Program",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "34,989.15",
+            "Total Amount (P)": "34,989.15"
+        },
+        {
+            "Item No.": "B.9",
+            "Description": "Mobilization/Demobilization",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "48,400.00",
+            "Total Amount (P)": "48,400.00"
+        },
+        {
+            "Item No.": "900(1)b1",
+            "Description": "Structural Concrete, Class \"A\" (14 Days)",
+            "Qty.": "0.57",
+            "Unit": "cu.m.",
+            "Unit Cost (P)": "10,338.07",
+            "Total Amount (P)": "5,892.70"
+        },
+        {
+            "Item No.": "1602(5)",
+            "Description": "Polyethylene (PE) Plastic Pipe",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "22,780.00",
+            "Total Amount (P)": "22,780.00"
+        },
+        {
+            "Item No.": "1002(21)",
+            "Description": "Faucet",
+            "Qty.": "3.00",
+            "Unit": "pc.",
+            "Unit Cost (P)": "2,948.00",
+            "Total Amount (P)": "8,844.00"
+        },
+        {
+            "Item No.": "1002(13)",
+            "Description": "Slop Sink, Complete",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "5,628.00",
+            "Total Amount (P)": "16,884.00"
+        },
+        {
+            "Item No.": "1201(9)c",
+            "Description": "Overhead Tank (Polyethylene)",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "30,250.00",
+            "Total Amount (P)": "90,750.00"
+        },
+        {
+            "Item No.": "1001(1)a1",
+            "Description": "50mm PVC Pipes and Fittings, Series 1000",
+            "Qty.": "9.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,089.00",
+            "Total Amount (P)": "9,801.00"
+        },
+        {
+            "Item No.": "1001(1)a2",
+            "Description": "75mm PVC Pipes and Fittings, Series 1000",
+            "Qty.": "40.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,331.00",
+            "Total Amount (P)": "53,240.00"
+        },
+        {
+            "Item No.": "1013(2)b1",
+            "Description": "Fabricated Metal Roofing Accessory (Gutter)",
+            "Qty.": "54.00",
+            "Unit": "l.m.",
+            "Unit Cost (P)": "670.00",
+            "Total Amount (P)": "36,180.00"
+        },
+        {
+            "Item No.": "1032(1)c",
+            "Description": "Painting Works (Steel)",
+            "Qty.": "41.46",
+            "Unit": "sq.m.",
+            "Unit Cost (P)": "495.80",
+            "Total Amount (P)": "20,555.87"
+        },
+        {
+            "Item No.": "1047(6)",
+            "Description": "Structural Steel (Steel Platform)",
+            "Qty.": "511.47",
+            "Unit": "kg",
+            "Unit Cost (P)": "120.60",
+            "Total Amount (P)": "61,683.28"
+        },
+        {
+            "Item No.": "",
+            "Description": "SUB-TOTAL",
+            "Qty.": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": "443,500.00"
+        }
+    ],
+    "25LH0051_NAMNAM": [
+        {
+            "Item No.": "B.4 (1)",
+            "Description": "Construction Survey and Staking",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "18,760.00",
+            "Total Amount (P)": "18,760.00"
+        },
+        {
+            "Item No.": "B.5",
+            "Description": "Project Billboard/Signboard",
+            "Qty.": "2.00",
+            "Unit": "each",
+            "Unit Cost (P)": "7,370.00",
+            "Total Amount (P)": "14,740.00"
+        },
+        {
+            "Item No.": "B.7(2)",
+            "Description": "Occupational Safety and Health Program",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "34,989.15",
+            "Total Amount (P)": "34,989.15"
+        },
+        {
+            "Item No.": "B.9",
+            "Description": "Mobilization/Demobilization",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "48,400.00",
+            "Total Amount (P)": "48,400.00"
+        },
+        {
+            "Item No.": "900(1)b1",
+            "Description": "Structural Concrete, Class \"A\" (14 Days)",
+            "Qty.": "0.57",
+            "Unit": "cu.m.",
+            "Unit Cost (P)": "10,338.07",
+            "Total Amount (P)": "5,892.70"
+        },
+        {
+            "Item No.": "1602(5)",
+            "Description": "Polyethylene (PE) Plastic Pipe",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "22,780.00",
+            "Total Amount (P)": "22,780.00"
+        },
+        {
+            "Item No.": "1002(21)",
+            "Description": "Faucet",
+            "Qty.": "3.00",
+            "Unit": "pc.",
+            "Unit Cost (P)": "2,948.00",
+            "Total Amount (P)": "8,844.00"
+        },
+        {
+            "Item No.": "1002(13)",
+            "Description": "Slop Sink, Complete",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "5,628.00",
+            "Total Amount (P)": "16,884.00"
+        },
+        {
+            "Item No.": "1201(9)c",
+            "Description": "Overhead Tank (Polyethylene)",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "30,250.00",
+            "Total Amount (P)": "90,750.00"
+        },
+        {
+            "Item No.": "1001(1)a1",
+            "Description": "50mm PVC Pipes and Fittings",
+            "Qty.": "9.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,089.00",
+            "Total Amount (P)": "9,801.00"
+        },
+        {
+            "Item No.": "1001(1)a2",
+            "Description": "75mm PVC Pipes and Fittings",
+            "Qty.": "40.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,331.00",
+            "Total Amount (P)": "53,240.00"
+        },
+        {
+            "Item No.": "1013(2)b1",
+            "Description": "Fabricated Metal Roofing Accessory (Gutter)",
+            "Qty.": "54.00",
+            "Unit": "l.m.",
+            "Unit Cost (P)": "670.00",
+            "Total Amount (P)": "36,180.00"
+        },
+        {
+            "Item No.": "1032(1)c",
+            "Description": "Painting Works (Steel)",
+            "Qty.": "41.46",
+            "Unit": "sq.m.",
+            "Unit Cost (P)": "495.80",
+            "Total Amount (P)": "20,555.87"
+        },
+        {
+            "Item No.": "1047(6)",
+            "Description": "Structural Steel (Steel Platform)",
+            "Qty.": "511.47",
+            "Unit": "kg",
+            "Unit Cost (P)": "120.60",
+            "Total Amount (P)": "61,683.28"
+        },
+        {
+            "Item No.": "",
+            "Description": "SUB-TOTAL",
+            "Qty.": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": "443,500.00"
+        }
+    ],
+    "25LH0051_POPO": [
+        {
+            "Item No.": "B.4 (1)",
+            "Description": "Construction Survey and Staking",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "18,760.00",
+            "Total Amount (P)": "18,760.00"
+        },
+        {
+            "Item No.": "B.5",
+            "Description": "Project Billboard/Signboard",
+            "Qty.": "2.00",
+            "Unit": "each",
+            "Unit Cost (P)": "7,370.00",
+            "Total Amount (P)": "14,740.00"
+        },
+        {
+            "Item No.": "B.7(2)",
+            "Description": "Occupational Safety and Health Program",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "34,989.15",
+            "Total Amount (P)": "34,989.15"
+        },
+        {
+            "Item No.": "B.9",
+            "Description": "Mobilization/Demobilization",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "48,400.00",
+            "Total Amount (P)": "48,400.00"
+        },
+        {
+            "Item No.": "900(1)b1",
+            "Description": "Structural Concrete, Class \"A\" (14 Days)",
+            "Qty.": "0.57",
+            "Unit": "cu.m.",
+            "Unit Cost (P)": "10,338.07",
+            "Total Amount (P)": "5,892.70"
+        },
+        {
+            "Item No.": "1602(5)",
+            "Description": "Polyethylene (PE) Plastic Pipe",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "22,780.00",
+            "Total Amount (P)": "22,780.00"
+        },
+        {
+            "Item No.": "1002(21)",
+            "Description": "Faucet",
+            "Qty.": "3.00",
+            "Unit": "pc.",
+            "Unit Cost (P)": "2,948.00",
+            "Total Amount (P)": "8,844.00"
+        },
+        {
+            "Item No.": "1002(13)",
+            "Description": "Slop Sink, Complete",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "5,628.00",
+            "Total Amount (P)": "16,884.00"
+        },
+        {
+            "Item No.": "1201(9)c",
+            "Description": "Overhead Tank (Polyethylene)",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "30,250.00",
+            "Total Amount (P)": "90,750.00"
+        },
+        {
+            "Item No.": "1001(1)a1",
+            "Description": "50mm PVC Pipes and Fittings, Series 1000",
+            "Qty.": "9.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,089.00",
+            "Total Amount (P)": "9,801.00"
+        },
+        {
+            "Item No.": "1001(1)a2",
+            "Description": "75mm PVC Pipes and Fittings, Series 1000",
+            "Qty.": "40.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,331.00",
+            "Total Amount (P)": "53,240.00"
+        },
+        {
+            "Item No.": "1013(2)b1",
+            "Description": "Fabricated Metal Roofing Accessory (Gutter)",
+            "Qty.": "54.00",
+            "Unit": "l.m.",
+            "Unit Cost (P)": "670.00",
+            "Total Amount (P)": "36,180.00"
+        },
+        {
+            "Item No.": "1032(1)c",
+            "Description": "Painting Works (Steel)",
+            "Qty.": "41.46",
+            "Unit": "sq.m.",
+            "Unit Cost (P)": "495.80",
+            "Total Amount (P)": "20,555.87"
+        },
+        {
+            "Item No.": "1047(6)",
+            "Description": "Structural Steel (Steel Platform)",
+            "Qty.": "511.47",
+            "Unit": "kg",
+            "Unit Cost (P)": "120.60",
+            "Total Amount (P)": "61,683.28"
+        },
+        {
+            "Item No.": "",
+            "Description": "SUB-TOTAL",
+            "Qty.": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": "443,500.00"
+        }
+    ],
+    "25LH0051_SIMON": [
+        {
+            "Item No.": "B.4 (1)",
+            "Description": "Construction Survey and Staking",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "18,760.00",
+            "Total Amount (P)": "18,760.00"
+        },
+        {
+            "Item No.": "B.5",
+            "Description": "Project Billboard/Signboard",
+            "Qty.": "2.00",
+            "Unit": "each",
+            "Unit Cost (P)": "7,370.00",
+            "Total Amount (P)": "14,740.00"
+        },
+        {
+            "Item No.": "B.7(2)",
+            "Description": "Occupational Safety and Health Program",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "26,800.00",
+            "Total Amount (P)": "26,800.00"
+        },
+        {
+            "Item No.": "B.9",
+            "Description": "Mobilization/Demobilization",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "45,966.24",
+            "Total Amount (P)": "45,966.24"
+        },
+        {
+            "Item No.": "900(1)b1",
+            "Description": "Structural Concrete, Class \"A\" (14 Days)",
+            "Qty.": "0.57",
+            "Unit": "cu.m.",
+            "Unit Cost (P)": "10,338.07",
+            "Total Amount (P)": "5,892.70"
+        },
+        {
+            "Item No.": "1602(5)",
+            "Description": "Polyethylene (PE) Plastic Pipe",
+            "Qty.": "1.00",
+            "Unit": "l.s.",
+            "Unit Cost (P)": "22,780.00",
+            "Total Amount (P)": "22,780.00"
+        },
+        {
+            "Item No.": "1002(21)",
+            "Description": "Faucet",
+            "Qty.": "3.00",
+            "Unit": "pc.",
+            "Unit Cost (P)": "2,948.00",
+            "Total Amount (P)": "8,844.00"
+        },
+        {
+            "Item No.": "1002(13)",
+            "Description": "Slop Sink, Complete",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "5,628.00",
+            "Total Amount (P)": "16,884.00"
+        },
+        {
+            "Item No.": "1201(9)c",
+            "Description": "Overhead Tank (Polyethylene)",
+            "Qty.": "3.00",
+            "Unit": "set",
+            "Unit Cost (P)": "30,250.00",
+            "Total Amount (P)": "90,750.00"
+        },
+        {
+            "Item No.": "1001(1)a1",
+            "Description": "50mm PVC Pipes and Fittings",
+            "Qty.": "9.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,089.00",
+            "Total Amount (P)": "9,801.00"
+        },
+        {
+            "Item No.": "1001(1)a2",
+            "Description": "75mm PVC Pipes and Fittings",
+            "Qty.": "40.00",
+            "Unit": "m.",
+            "Unit Cost (P)": "1,331.00",
+            "Total Amount (P)": "53,240.00"
+        },
+        {
+            "Item No.": "1013(2)b1",
+            "Description": "Fabricated Metal Roofing Accessory (Gutter)",
+            "Qty.": "54.00",
+            "Unit": "l.m.",
+            "Unit Cost (P)": "648.56",
+            "Total Amount (P)": "35,022.24"
+        },
+        {
+            "Item No.": "1032(1)c",
+            "Description": "Painting Works (Steel)",
+            "Qty.": "41.11",
+            "Unit": "sq.m.",
+            "Unit Cost (P)": "489.10",
+            "Total Amount (P)": "20,106.90"
+        },
+        {
+            "Item No.": "1047(6)",
+            "Description": "Structural Steel (Steel Platform)",
+            "Qty.": "508.56",
+            "Unit": "kg",
+            "Unit Cost (P)": "116.58",
+            "Total Amount (P)": "59,287.92"
+        },
+        {
+            "Item No.": "",
+            "Description": "SUB-TOTAL",
+            "Qty.": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": "428,875.00"
+        }
+    ]
+}
