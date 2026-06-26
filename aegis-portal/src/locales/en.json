@@ -10,7 +10,8 @@
     "login": "Login",
     "menu": "Menu",
     "close": "Close",
-    "language": "Language"
+    "language": "Language",
+    "geomap": "Map"
   },
   "common": {
     "getStarted": "Get Started",
@@ -56,14 +57,38 @@
     "contactDescription": "Deploy AEGIS for project monitoring, price benchmarking, and public transparency workflows."
   },
   "features": {
-    "monitoring": { "title": "Infrastructure Monitoring", "description": "Track contract values, schedule slippage, locations, and project status in a unified command center." },
-    "benchmarking": { "title": "Market Price Benchmarking", "description": "Compare declared material costs against local baselines to identify pricing outliers early." },
-    "supplier": { "title": "Supplier Intelligence", "description": "Map contractors, materials, and procurement signals across active public works packages." },
-    "geo": { "title": "Geo-tagged Verification", "description": "Prepare field reports for precise location-aware validation during on-site inspections." },
-    "aiRisk": { "title": "AI Risk Detection", "description": "Convert cost, progress, and citizen signals into clear risk explanations for reviewers." },
-    "transparency": { "title": "Transparency Dashboard", "description": "Give stakeholders a clean, accessible view of public infrastructure performance." },
-    "analytics": { "title": "Analytics & Reporting", "description": "Generate executive-ready summaries for agencies, NGOs, and presentation teams." },
-    "tracking": { "title": "Project Tracking", "description": "Follow each project from budget approval through implementation and verification." }
+    "monitoring": {
+      "title": "Infrastructure Monitoring",
+      "description": "Track contract values, schedule slippage, locations, and project status in a unified command center."
+    },
+    "benchmarking": {
+      "title": "Market Price Benchmarking",
+      "description": "Compare declared material costs against local baselines to identify pricing outliers early."
+    },
+    "supplier": {
+      "title": "Supplier Intelligence",
+      "description": "Map contractors, materials, and procurement signals across active public works packages."
+    },
+    "geo": {
+      "title": "Geo-tagged Verification",
+      "description": "Prepare field reports for precise location-aware validation during on-site inspections."
+    },
+    "aiRisk": {
+      "title": "AI Risk Detection",
+      "description": "Convert cost, progress, and citizen signals into clear risk explanations for reviewers."
+    },
+    "transparency": {
+      "title": "Transparency Dashboard",
+      "description": "Give stakeholders a clean, accessible view of public infrastructure performance."
+    },
+    "analytics": {
+      "title": "Analytics & Reporting",
+      "description": "Generate executive-ready summaries for agencies, NGOs, and presentation teams."
+    },
+    "tracking": {
+      "title": "Project Tracking",
+      "description": "Follow each project from budget approval through implementation and verification."
+    }
   },
   "workflow": {
     "collect": "Data Collection",
@@ -94,7 +119,7 @@
     "trackedProjects": "Tracked projects",
     "contractValue": "Contract value",
     "citizenSignals": "Citizen signals",
-    "loadedFrom": "Loaded from live DPWH Watchdog API",
+    "loadedFrom": "Loaded from projects.json",
     "prototypeRecords": "Across prototype records",
     "highRiskFlagged": "high-risk projects flagged",
     "projectDetail": "Project intelligence",

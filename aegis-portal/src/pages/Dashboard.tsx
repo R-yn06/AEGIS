@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect, useRef } from 'react' // Added useRef
 import TrafficLight from '../components/TrafficLight'
 import { Button } from '../components/ui/Button'
 import { Card } from '../components/ui/Card'
@@ -11,6 +12,12 @@ import { shortPeso } from '../utils/formatters'
 import type { CitizenReport, Project, ProjectFilters, RiskClassification } from '../types'
 
 const riskOptions: Array<RiskClassification | 'All'> = ['All', 'Low', 'Medium', 'High', 'Critical']
+
+type DashboardProps = {
+  onUpload: () => void
+  selectedProjectId: string
+  onSelectProject: (id: string) => void
+}
 
 function useDebouncedValue<T>(value: T, delay = 350) {
   const [debounced, setDebounced] = React.useState(value)
@@ -52,27 +59,37 @@ function Metric({ label, value, helper }: { label: string; value: string; helper
   )
 }
 
-function ProjectCard({ project, active, onSelect }: { project: Project; active: boolean; onSelect: () => void }) {
-  return (
-    <button type="button" className={`project-card ${active ? 'active' : ''}`} onClick={onSelect}>
-      <div className="project-card-header">
-        <span>{project.contractId}</span>
-        <TrafficLight risk={project.riskClassification} compact />
-      </div>
-      <h3>{project.projectTitle}</h3>
-      <p>{project.province}, {project.region}</p>
-      <div className="project-card-meta">
-        <span>{shortPeso(project.budget)}</span>
-        <span>{project.progress.toFixed(1)}%</span>
-        <span>{project.citizenReportCount} alerts</span>
-      </div>
-    </button>
-  )
-}
+// Forward the card element ref so the list scrolling selector can track it down
+const ProjectCard = React.forwardRef<HTMLButtonElement, { project: Project; active: boolean; onSelect: () => void }>(
+  ({ project, active, onSelect }, ref) => {
+    return (
+      <button 
+        ref={ref}
+        type="button" 
+        className={`project-card ${active ? 'active' : ''}`} 
+        onClick={onSelect}
+      >
+        <div className="project-card-header">
+          <span>{project.contractId}</span>
+          <TrafficLight risk={project.riskClassification} compact />
+        </div>
+        <h3>{project.projectTitle}</h3>
+        <p>{project.province}, {project.region}</p>
+        <div className="project-card-meta">
+          <span>{shortPeso(project.budget || 0)}</span>
+          <span>{(project.progress || 0).toFixed(1)}%</span>
+          <span>{project.citizenReportCount || 0} alerts</span>
+        </div>
+      </button>
+    )
+  }
+)
+ProjectCard.displayName = 'ProjectCard'
 
 function RiskDashboard({ project }: { project: Project }) {
-  const score = Math.max(0, Math.min(100, project.riskScore))
-  const trendLabel = project.riskTrend === 'up' ? 'Rising risk' : project.riskTrend === 'down' ? 'Improving' : 'Stable'
+  const score = Math.max(0, Math.min(100, (project as any).riskScore || 0))
+  const trend = (project as any).riskTrend
+  const trendLabel = trend === 'up' ? 'Rising risk' : trend === 'down' ? 'Improving' : 'Stable'
 
   return (
     <div className="risk-dashboard">
@@ -84,8 +101,8 @@ function RiskDashboard({ project }: { project: Project }) {
         <span style={{ width: `${score}%` }} />
       </div>
       <div className="risk-dashboard-grid">
-        <div><span>Completion</span><strong>{project.progress.toFixed(1)}%</strong></div>
-        <div><span>Citizen alerts</span><strong>{project.citizenReportCount}</strong></div>
+        <div><span>Completion</span><strong>{(project.progress || 0).toFixed(1)}%</strong></div>
+        <div><span>Citizen alerts</span><strong>{project.citizenReportCount || 0}</strong></div>
         <div><span>Trend</span><strong>{trendLabel}</strong></div>
       </div>
     </div>
@@ -97,10 +114,10 @@ function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { proje
     <Card className="project-detail">
       <div className="detail-header">
         <TrafficLight risk={project.riskClassification} />
-        <span>Updated {project.lastUpdated ?? 'recently'}</span>
+        <span>Updated {(project as any).lastUpdated ?? 'recently'}</span>
       </div>
       <h2>{project.projectTitle}</h2>
-      <p>{project.programName ?? project.sourceOfFunds ?? 'DPWH Infrastructure Program'}</p>
+      <p>{(project as any).programName ?? project.sourceOfFunds ?? 'DPWH Infrastructure Program'}</p>
 
       <RiskDashboard project={project} />
 
@@ -108,17 +125,17 @@ function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { proje
         <div><dt>Contract ID</dt><dd>{project.contractId}</dd></div>
         <div><dt>Region</dt><dd>{project.region}</dd></div>
         <div><dt>Province</dt><dd>{project.province}</dd></div>
-        <div><dt>Municipality</dt><dd>{project.municipality ?? 'Not specified'}</dd></div>
+        <div><dt>Municipality</dt><dd>{(project as any).municipality ?? 'Not specified'}</dd></div>
         <div><dt>Contractor</dt><dd>{project.contractor}</dd></div>
-        <div><dt>Budget</dt><dd>{shortPeso(project.budget)}</dd></div>
+        <div><dt>Budget</dt><dd>{shortPeso(project.budget || 0)}</dd></div>
         <div><dt>Status</dt><dd>{project.status}</dd></div>
         <div><dt>Category</dt><dd>{project.category}</dd></div>
       </dl>
 
-      {project.riskFlags.length > 0 && (
+      {(project as any).riskFlags && (project as any).riskFlags.length > 0 && (
         <div className="watchlist">
           <h3>AI Risk Flags</h3>
-          {project.riskFlags.slice(0, 4).map((flag) => (
+          {(project as any).riskFlags.slice(0, 4).map((flag: string) => (
             <div key={flag}>
               <span>{flag}</span>
             </div>
@@ -126,7 +143,7 @@ function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { proje
         </div>
       )}
 
-      <p className="analysis-panel">{project.aiNarrative}</p>
+      <p className="analysis-panel">{(project as any).aiNarrative}</p>
 
       <div className="reports-panel">
         <div className="reports-panel-header">
@@ -168,15 +185,17 @@ function LoadingCards() {
   )
 }
 
-export default function Dashboard({ onUpload }: { onUpload: () => void }) {
+export default function Dashboard({ onUpload, selectedProjectId, onSelectProject }: DashboardProps) {
   const { t } = useI18n()
   const initialFilters = React.useMemo(readFiltersFromUrl, [])
   const [query, setQuery] = React.useState(initialFilters.search ?? '')
   const [risk, setRisk] = React.useState<RiskClassification | 'All'>(initialFilters.risk ?? 'All')
   const [region, setRegion] = React.useState(initialFilters.region ?? '')
   const [category, setCategory] = React.useState(initialFilters.category ?? '')
-  const [selectedId, setSelectedId] = React.useState('')
   const debouncedSearch = useDebouncedValue(query)
+  
+  // Track active DOM node to handle focused auto-scrolling animations
+  const activeCardRef = useRef<HTMLButtonElement>(null)
 
   const filters = React.useMemo<ProjectFilters>(() => ({
     risk: risk === 'All' ? undefined : risk,
@@ -192,23 +211,38 @@ export default function Dashboard({ onUpload }: { onUpload: () => void }) {
   const allProjectsQuery = useProjects()
   const projectsQuery = useProjects(filters)
   const projects = projectsQuery.data?.projects ?? []
-  const selectedProjectId = selectedId || projects[0]?.contractId
-  const detailQuery = useProject(selectedProjectId)
-  const reportsQuery = useReports(selectedProjectId)
-  const selectedProject = detailQuery.data ?? projects.find((project) => project.contractId === selectedProjectId)
+  
+  const activeProjectId = selectedProjectId || projects[0]?.contractId
+  const detailQuery = useProject(activeProjectId)
+  const reportsQuery = useReports(activeProjectId)
+  const selectedProject = detailQuery.data ?? projects.find((project) => project.contractId === activeProjectId)
 
   React.useEffect(() => {
-    if (projects.length > 0 && !projects.some((project) => project.contractId === selectedId)) {
-      setSelectedId(projects[0].contractId)
+    if (projects.length > 0 && !projects.some((project) => project.contractId === selectedProjectId)) {
+      onSelectProject(projects[0].contractId)
     }
-  }, [projects, selectedId])
+  }, [projects, selectedProjectId, onSelectProject])
+
+  // Scroll target element smoothly into center context view on external state select changes
+  useEffect(() => {
+    if (selectedProjectId && activeCardRef.current) {
+      setTimeout(() => {
+        activeCardRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        })
+      }, 100)
+    }
+  }, [selectedProjectId])
 
   const allProjects = allProjectsQuery.data?.projects ?? []
-  const regions = Array.from(new Set(allProjects.map((project) => project.region))).sort()
-  const categories = Array.from(new Set(allProjects.map((project) => project.category))).sort()
-  const totalBudget = allProjects.reduce((sum, project) => sum + project.budget, 0)
-  const highRisk = allProjects.filter((project) => project.riskClassification === 'High' || project.riskClassification === 'Critical').length
-  const reports = reportsQuery.data ?? selectedProject?.citizenReports ?? []
+  const regions = Array.from(new Set(allProjects.map((project: Project) => project.region))).sort()
+  const categories = Array.from(new Set(allProjects.map((project: Project) => project.category))).sort()
+  
+  const totalBudget = allProjects.reduce((sum, project: Project) => sum + (project.budget || 0), 0)
+  const highRisk = allProjects.filter((project: Project) => project.riskClassification === 'High' || project.riskClassification === 'Critical').length
+  const totalAlerts = allProjects.reduce((sum, project: Project) => sum + (project.citizenReportCount || 0), 0)
+  const reports = reportsQuery.data ?? (selectedProject as any)?.citizenReports ?? []
 
   return (
     <div className="workspace-page">
@@ -221,7 +255,7 @@ export default function Dashboard({ onUpload }: { onUpload: () => void }) {
       <div className="metrics-row">
         <Metric label={t('dashboard.trackedProjects')} value={String(allProjects.length)} helper="Live project records" />
         <Metric label={t('dashboard.contractValue')} value={shortPeso(totalBudget)} helper="Tracked public infrastructure value" />
-        <Metric label={t('dashboard.citizenSignals')} value={String(allProjects.reduce((sum, project) => sum + project.citizenReportCount, 0))} helper={`${highRisk} high or critical risk projects`} />
+        <Metric label={t('dashboard.citizenSignals')} value={String(totalAlerts)} helper={`${highRisk} high or critical risk projects`} />
       </div>
 
       <div className="workspace-grid">
@@ -261,9 +295,18 @@ export default function Dashboard({ onUpload }: { onUpload: () => void }) {
           ) : projects.length === 0 ? (
             <Card className="empty-state">No projects match the current filters.</Card>
           ) : (
-            projects.map((project) => (
-              <ProjectCard key={project.contractId} project={project} active={selectedProject?.contractId === project.contractId} onSelect={() => setSelectedId(project.contractId)} />
-            ))
+            projects.map((project) => {
+              const isSelected = selectedProject?.contractId === project.contractId
+              return (
+                <ProjectCard 
+                  key={project.contractId} 
+                  ref={isSelected ? activeCardRef : null}
+                  project={project} 
+                  active={isSelected} 
+                  onSelect={() => onSelectProject(project.contractId)}
+                />
+              )
+            })
           )}
         </section>
 
