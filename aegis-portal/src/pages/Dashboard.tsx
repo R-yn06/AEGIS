@@ -165,12 +165,20 @@ function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { proje
 function ReportItem({ report }: { report: CitizenReport }) {
   return (
     <article className="report-item">
+      {report.photoUrl && (
+        <figure className="report-evidence-preview">
+          <img src={report.photoUrl} alt="Citizen report evidence" loading="lazy" />
+          <figcaption>
+            <span>Citizen evidence photo</span>
+            <a href={report.photoUrl} target="_blank" rel="noreferrer">Open full image</a>
+          </figcaption>
+        </figure>
+      )}
       <div>
         <strong>{report.reporterName}</strong>
         <span>{new Date(report.createdAt).toLocaleDateString()} · {report.verificationStatus}</span>
       </div>
       <p>{report.text}</p>
-      {report.photoUrl && <img src={report.photoUrl} alt="Citizen report evidence" loading="lazy" />}
     </article>
   )
 }
@@ -196,6 +204,7 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
   
   // Track active DOM node to handle focused auto-scrolling animations
   const activeCardRef = useRef<HTMLButtonElement>(null)
+  const projectListRef = useRef<HTMLElement>(null)
 
   const filters = React.useMemo<ProjectFilters>(() => ({
     risk: risk === 'All' ? undefined : risk,
@@ -225,12 +234,14 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
 
   // Scroll target element smoothly into center context view on external state select changes
   useEffect(() => {
-    if (selectedProjectId && activeCardRef.current) {
+    if (selectedProjectId && activeCardRef.current && projectListRef.current) {
       setTimeout(() => {
-        activeCardRef.current?.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        })
+        const list = projectListRef.current
+        const card = activeCardRef.current
+        if (!list || !card) return
+
+        const targetTop = card.offsetTop - list.offsetTop - (list.clientHeight / 2) + (card.clientHeight / 2)
+        list.scrollTo({ top: Math.max(targetTop, 0), behavior: 'smooth' })
       }, 100)
     }
   }, [selectedProjectId])
@@ -259,7 +270,7 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
       </div>
 
       <div className="workspace-grid">
-        <section className="workspace-list">
+        <section className="workspace-list" ref={projectListRef}>
           <Card className="filter-card sticky-filter">
             <label htmlFor="project-search">{t('dashboard.searchLabel')}</label>
             <div className="search-control">

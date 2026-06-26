@@ -13,8 +13,35 @@ function stringFrom(value: unknown, fallback = 'Not specified') {
   return typeof value === 'string' && value.trim() ? value : fallback
 }
 
+function optionalStringFrom(...values: unknown[]) {
+  return values.find((value): value is string => typeof value === 'string' && value.trim().length > 0)
+}
+
 export function normalizeReport(raw: RawRecord, contractId = ''): CitizenReport {
-  const photoUrl = raw.photoUrl ?? raw.publicUrl ?? raw.imageUrl ?? raw.image_url
+  const photoUrl = optionalStringFrom(
+    raw.photoUrl,
+    raw.photo_url,
+    raw.publicUrl,
+    raw.public_url,
+    raw.imageUrl,
+    raw.image_url,
+    raw.evidenceUrl,
+    raw.evidence_url,
+    raw.attachmentUrl,
+    raw.attachment_url,
+    raw.photo?.url,
+    raw.photo?.publicUrl,
+    raw.photo?.public_url,
+    raw.image?.url,
+    raw.image?.publicUrl,
+    raw.image?.public_url,
+    raw.upload?.url,
+    raw.upload?.publicUrl,
+    raw.upload?.public_url,
+    raw.media?.url,
+    raw.media?.publicUrl,
+    raw.media?.public_url
+  )
   return {
     id: stringFrom(raw.reportId ?? raw.id ?? raw.createdAt ?? raw.created_at ?? crypto.randomUUID(), crypto.randomUUID()),
     contractId: stringFrom(raw.contractId ?? raw.contract_id ?? contractId, contractId),
