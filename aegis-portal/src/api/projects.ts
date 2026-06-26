@@ -14,13 +14,24 @@ function stringFrom(value: unknown, fallback = 'Not specified') {
 }
 
 export function normalizeReport(raw: RawRecord, contractId = ''): CitizenReport {
-  const photoUrl = raw.photoUrl ?? raw.publicUrl ?? raw.imageUrl ?? raw.image_url
+  let text = stringFrom(raw.text ?? raw.reportText ?? raw.report_text ?? raw.description, '')
+  let photoUrl = raw.photoUrl ?? raw.publicUrl ?? raw.imageUrl ?? raw.image_url ?? null
+
+  // WORKAROUND EXTRACTION LAYER: 
+  // Intercept text attributes to identify if an uploaded link has been embedded inside.
+  // If matched, extract it to bind the visual image layer while keeping the reader viewport markdown clean.
+  if (text.includes('[IMAGE]:')) {
+    const parts = text.split('[IMAGE]:')
+    text = parts[0].trim()
+    photoUrl = parts[1].trim()
+  }
+
   return {
     id: stringFrom(raw.reportId ?? raw.id ?? raw.createdAt ?? raw.created_at ?? crypto.randomUUID(), crypto.randomUUID()),
     contractId: stringFrom(raw.contractId ?? raw.contract_id ?? contractId, contractId),
     reporterName: stringFrom(raw.reporterName ?? raw.reporter_name ?? raw.name, 'Concerned citizen'),
-    text: stringFrom(raw.text ?? raw.reportText ?? raw.report_text ?? raw.description, ''),
-    photoKey: raw.photoKey ?? raw.photo_key,
+    text,
+    photoKey: raw.photoKey ?? raw.photo_key ?? null,
     photoUrl,
     verificationStatus: stringFrom(raw.verificationStatus ?? raw.verification_status ?? raw.status, 'Pending review'),
     createdAt: stringFrom(raw.createdAt ?? raw.created_at ?? raw.reportDate ?? raw.report_date, new Date().toISOString()),
@@ -30,7 +41,9 @@ export function normalizeReport(raw: RawRecord, contractId = ''): CitizenReport 
 export function normalizeProject(raw: RawRecord): Project {
   const riskClassification = normalizeRisk(raw.riskClassification ?? raw.risk_classification)
   const riskScore = numberFrom(raw.riskScore ?? raw.risk_score, getRiskScoreFallback(riskClassification))
-  const reports = Array.isArray(raw.citizenReports) ? raw.citizenReports.map((report) => normalizeReport(report, raw.contractId ?? raw.contract_id)) : undefined
+  const reports = Array.isArray(raw.citizenReports) 
+    ? raw.citizenReports.map((report) => normalizeReport(report, raw.contractId ?? raw.contract_id)) 
+    : undefined
 
   return {
     contractId: stringFrom(raw.contractId ?? raw.contract_id, ''),
@@ -60,14 +73,14 @@ export function normalizeProject(raw: RawRecord): Project {
     longitude: raw.longitude ?? raw.geospatial?.longitude,
     isLive: Boolean(raw.isLive ?? raw.is_live),
     citizenReports: reports,
-  }
+  } as unknown as Project
 }
 
 export async function getProjects(filters: ProjectFilters = {}): Promise<ProjectsResponse> {
   const payload = await apiRequest<RawRecord | RawRecord[]>('/projects', { query: filters })
   const rawProjects = Array.isArray(payload) ? payload : Array.isArray(payload.projects) ? payload.projects : []
   return {
-    projects: rawProjects.map(normalizeProject).filter((project) => project.contractId),
+    projects: rawProjects.map(normalizeProject).filter((project: Project) => project.contractId),
     count: numberFrom(Array.isArray(payload) ? rawProjects.length : payload.count, rawProjects.length),
     nextKey: Array.isArray(payload) ? null : payload.nextKey ?? null,
   }

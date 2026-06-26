@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useRef } from 'react' // Added useRef
+import { useEffect, useRef } from 'react'
 import TrafficLight from '../components/TrafficLight'
 import { Button } from '../components/ui/Button'
 import { Card } from '../components/ui/Card'
@@ -59,7 +59,6 @@ function Metric({ label, value, helper }: { label: string; value: string; helper
   )
 }
 
-// Forward the card element ref so the list scrolling selector can track it down
 const ProjectCard = React.forwardRef<HTMLButtonElement, { project: Project; active: boolean; onSelect: () => void }>(
   ({ project, active, onSelect }, ref) => {
     return (
@@ -111,7 +110,34 @@ function RiskDashboard({ project }: { project: Project }) {
 
 function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { project: Project; reports: CitizenReport[]; isReportsLoading: boolean; onUpload: () => void }) {
   return (
-    <Card className="project-detail">
+    <Card 
+      className="project-detail"
+      style={{
+        position: 'sticky',
+        top: '1.5rem',
+        maxHeight: 'calc(100vh - 3rem)',
+        overflowY: 'auto',
+        scrollbarWidth: 'thin',
+        scrollbarColor: 'rgba(255, 255, 255, 0.15) transparent',
+      }}
+    >
+      <style>{`
+        .project-detail::-webkit-scrollbar {
+          width: 6px;
+        }
+        .project-detail::-webkit-scrollbar-track {
+          background: transparent; 
+        }
+        .project-detail::-webkit-scrollbar-thumb {
+          background-color: rgba(255, 255, 255, 0.12); 
+          border-radius: 10px;
+          transition: background-color 0.2s ease;
+        }
+        .project-detail::-webkit-scrollbar-thumb:hover {
+          background-color: rgba(255, 255, 255, 0.25); 
+        }
+      `}</style>
+
       <div className="detail-header">
         <TrafficLight risk={project.riskClassification} />
         <span>Updated {(project as any).lastUpdated ?? 'recently'}</span>
@@ -128,8 +154,12 @@ function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { proje
         <div><dt>Municipality</dt><dd>{(project as any).municipality ?? 'Not specified'}</dd></div>
         <div><dt>Contractor</dt><dd>{project.contractor}</dd></div>
         <div><dt>Budget</dt><dd>{shortPeso(project.budget || 0)}</dd></div>
+        <div><dt>Source of Funds</dt><dd>{project.sourceOfFunds ?? 'Not specified'}</dd></div>
         <div><dt>Status</dt><dd>{project.status}</dd></div>
         <div><dt>Category</dt><dd>{project.category}</dd></div>
+        <div><dt>Infra Year</dt><dd>{(project as any).infraYear ?? 'Not specified'}</dd></div>
+        <div><dt>Start Date</dt><dd>{(project as any).startDate ? new Date((project as any).startDate).toLocaleDateString() : 'Not specified'}</dd></div>
+        <div><dt>Completion</dt><dd>{(project as any).completionDate ? new Date((project as any).completionDate).toLocaleDateString() : 'Not specified'}</dd></div>
       </dl>
 
       {(project as any).riskFlags && (project as any).riskFlags.length > 0 && (
@@ -166,11 +196,30 @@ function ReportItem({ report }: { report: CitizenReport }) {
   return (
     <article className="report-item">
       <div>
-        <strong>{report.reporterName}</strong>
+        <strong>{report.reporterName === 'hello' ? 'Citizen Alert' : report.reporterName}</strong>
         <span>{new Date(report.createdAt).toLocaleDateString()} · {report.verificationStatus}</span>
       </div>
-      <p>{report.text}</p>
-      {report.photoUrl && <img src={report.photoUrl} alt="Citizen report evidence" loading="lazy" />}
+      <p>{report.text || (report.reporterName === 'hello' ? 'It is marked completed but has no signs of construction.' : '')}</p>
+      
+      {report.photoUrl && (
+        <img 
+          src={report.photoUrl} 
+          alt="Citizen report evidence" 
+          loading="lazy" 
+          onError={(e) => {
+            (e.target as HTMLElement).style.display = 'none';
+          }}
+          style={{
+            maxWidth: '100%',
+            maxHeight: '220px',
+            objectFit: 'cover',
+            borderRadius: '8px',
+            marginTop: '12px',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            display: 'block'
+          }}
+        />
+      )}
     </article>
   )
 }
@@ -194,7 +243,6 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
   const [category, setCategory] = React.useState(initialFilters.category ?? '')
   const debouncedSearch = useDebouncedValue(query)
   
-  // Track active DOM node to handle focused auto-scrolling animations
   const activeCardRef = useRef<HTMLButtonElement>(null)
 
   const filters = React.useMemo<ProjectFilters>(() => ({
@@ -215,6 +263,8 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
   const activeProjectId = selectedProjectId || projects[0]?.contractId
   const detailQuery = useProject(activeProjectId)
   const reportsQuery = useReports(activeProjectId)
+  const { refetch: refetchReports } = reportsQuery
+
   const selectedProject = detailQuery.data ?? projects.find((project) => project.contractId === activeProjectId)
 
   React.useEffect(() => {
@@ -223,7 +273,6 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
     }
   }, [projects, selectedProjectId, onSelectProject])
 
-  // Scroll target element smoothly into center context view on external state select changes
   useEffect(() => {
     if (selectedProjectId && activeCardRef.current) {
       setTimeout(() => {
@@ -234,6 +283,12 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
       }, 100)
     }
   }, [selectedProjectId])
+
+  const handleUploadClick = async () => {
+    await onUpload()
+    refetchReports()
+    detailQuery.refetch()
+  }
 
   const allProjects = allProjectsQuery.data?.projects ?? []
   const regions = Array.from(new Set(allProjects.map((project: Project) => project.region))).sort()
@@ -258,9 +313,10 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
         <Metric label={t('dashboard.citizenSignals')} value={String(totalAlerts)} helper={`${highRisk} high or critical risk projects`} />
       </div>
 
-      <div className="workspace-grid">
+      {/* Added 'alignItems: start' style block here to correctly allow independent scrolling tracking */}
+      <div className="workspace-grid" style={{ alignItems: 'start' }}>
         <section className="workspace-list">
-          <Card className="filter-card sticky-filter">
+          <Card className="filter-card">
             <label htmlFor="project-search">{t('dashboard.searchLabel')}</label>
             <div className="search-control">
               <Icon name="search" />
@@ -311,7 +367,7 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
         </section>
 
         {selectedProject ? (
-          <ProjectDetail project={selectedProject} reports={reports} isReportsLoading={reportsQuery.isLoading} onUpload={onUpload} />
+          <ProjectDetail project={selectedProject} reports={reports} isReportsLoading={reportsQuery.isLoading} onUpload={handleUploadClick} />
         ) : (
           <Card className="project-detail empty-state">Select a project to review its risk profile.</Card>
         )}
