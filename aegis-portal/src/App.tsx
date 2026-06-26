@@ -12,9 +12,21 @@ const CitizenUpload = React.lazy(() => import('./pages/CitizenUpload'))
 const SupplierDirectory = React.lazy(() => import('./pages/SupplierDirectory'))
 
 function AppContent() {
-  const [activeView, setActiveView] = React.useState<AppView>('home')
+  const [activeView, setActiveView] = React.useState<AppView>(() => getViewFromPath())
+
+  React.useEffect(() => {
+    function syncRoute() {
+      setActiveView(getViewFromPath())
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+
+    window.addEventListener('popstate', syncRoute)
+    return () => window.removeEventListener('popstate', syncRoute)
+  }, [])
 
   function openProduct(view: AppView = 'dashboard') {
+    const path = getPathFromView(view)
+    window.history.pushState({}, '', path)
     setActiveView(view)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -23,7 +35,7 @@ function AppContent() {
     return (
       <MarketingLayout onOpenApp={() => openProduct('dashboard')}>
         <React.Suspense fallback={<LoadingScreen />}>
-          <LandingPage onOpenApp={() => openProduct('dashboard')} />
+          <LandingPage onOpenApp={() => openProduct('dashboard')} onReportIssue={() => openProduct('upload')} />
         </React.Suspense>
       </MarketingLayout>
     )
@@ -38,6 +50,21 @@ function AppContent() {
       </React.Suspense>
     </ProductLayout>
   )
+}
+
+function getViewFromPath(): AppView {
+  const path = window.location.pathname
+  if (path.startsWith('/projects')) return 'dashboard'
+  if (path.startsWith('/report')) return 'upload'
+  if (path.startsWith('/suppliers')) return 'suppliers'
+  return 'home'
+}
+
+function getPathFromView(view: AppView) {
+  if (view === 'dashboard') return '/projects'
+  if (view === 'upload') return '/report'
+  if (view === 'suppliers') return '/suppliers'
+  return '/'
 }
 
 export default function App() {

@@ -2,7 +2,7 @@ import React from 'react'
 import { useI18n } from '../contexts/I18nContext'
 import { Icon } from './ui/Icons'
 
-export default function CameraButton({ onCapture }: { onCapture: (dataUrl: string) => void }) {
+export default function CameraButton({ onCapture }: { onCapture: (file: File, dataUrl: string) => void }) {
   const { t } = useI18n()
   const fileRef = React.useRef<HTMLInputElement | null>(null)
 
@@ -12,7 +12,7 @@ export default function CameraButton({ onCapture }: { onCapture: (dataUrl: strin
 
     const reader = new FileReader()
     reader.onload = () => {
-      if (typeof reader.result === 'string') onCapture(reader.result)
+      if (typeof reader.result === 'string') onCapture(file, reader.result)
     }
     reader.readAsDataURL(file)
     event.currentTarget.value = ''

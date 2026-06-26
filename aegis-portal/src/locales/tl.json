@@ -94,7 +94,7 @@
    "trackedProjects": "Mga Sinusubaybayang Proyekto",
    "contractValue": "Halaga ng Kontrata",
    "citizenSignals": "Mga Ulat ng Mamamayan",
-   "loadedFrom": "Loaded from projects.json",
+   "loadedFrom": "Loaded from live DPWH Watchdog API",
    "prototypeRecords": "Sa lahat ng prototype records",
    "highRiskFlagged": "high-risk projects ang naka-flag",
    "projectDetail": "Project intelligence",
@@ -150,5 +150,4 @@
    "rights": "All rights reserved."
  }
 }
-
 

@@ -1,5 +1,5 @@
 import { useI18n } from '../contexts/I18nContext'
-import { projectService } from '../services/projectService'
+import { useProjects } from '../hooks/useProjects'
 
 interface ProjectSelectProps {
   value: string
@@ -8,7 +8,8 @@ interface ProjectSelectProps {
 
 export default function ProjectSelect({ value, onChange }: ProjectSelectProps) {
   const { t } = useI18n()
-  const projects = projectService.listProjects()
+  const { data, isLoading } = useProjects()
+  const projects = data?.projects ?? []
 
   return (
     <select
@@ -18,10 +19,10 @@ export default function ProjectSelect({ value, onChange }: ProjectSelectProps) {
       className="form-control"
       required
     >
-      <option value="">{t('upload.selectProject')}</option>
+      <option value="">{isLoading ? 'Loading projects...' : t('upload.selectProject')}</option>
       {projects.map((project) => (
-        <option key={project.contract_id} value={project.contract_id}>
-          {project.location} - {project.project_title}
+        <option key={project.contractId} value={project.contractId}>
+          {project.province}, {project.region} - {project.projectTitle}
         </option>
       ))}
     </select>

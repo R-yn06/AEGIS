@@ -213,6 +213,12 @@ svg {
   transform: translateY(-1px);
 }
 
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.56;
+  transform: none;
+}
+
 .btn-primary {
   color: #050505;
   background: linear-gradient(135deg, var(--brand-orange), #ffc15b);
@@ -594,6 +600,10 @@ svg {
   gap: 0.85rem;
 }
 
+.workflow-four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .workflow-step {
   min-height: 9rem;
   border: 1px solid var(--border);
@@ -881,6 +891,20 @@ svg {
   background: var(--brand-blue);
 }
 
+.sticky-filter {
+  position: sticky;
+  top: 5.5rem;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+}
+
+.filter-select-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+}
+
 .project-card {
   width: 100%;
   border-radius: 1rem;
@@ -1054,6 +1078,138 @@ svg {
 
 .risk-danger span {
   background: var(--error);
+}
+
+.risk-critical {
+  color: #fecaca;
+  border-color: rgba(239, 68, 68, 0.34);
+  background: rgba(239, 68, 68, 0.18);
+}
+
+.risk-critical span {
+  background: #dc2626;
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.55);
+}
+
+.risk-dashboard {
+  display: grid;
+  gap: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  margin: 1.1rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.risk-dashboard-header,
+.reports-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.risk-dashboard-header strong {
+  color: var(--brand-orange);
+  font-size: 1.75rem;
+  font-weight: 950;
+}
+
+.risk-meter {
+  height: 0.7rem;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.risk-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--success), var(--warning), var(--error));
+  transition: width 240ms ease;
+}
+
+.risk-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.risk-dashboard-grid div {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+  background: rgba(5, 5, 5, 0.32);
+}
+
+.risk-dashboard-grid span,
+.report-item span,
+.empty-inline {
+  color: var(--muted);
+}
+
+.risk-dashboard-grid strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--text);
+}
+
+.reports-panel {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.reports-panel h3 {
+  margin: 0;
+  color: var(--text);
+}
+
+.reports-panel .btn {
+  min-height: 2.4rem;
+  padding: 0.65rem 0.85rem;
+}
+
+.report-item {
+  display: grid;
+  gap: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  padding: 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.report-item strong {
+  display: block;
+  color: var(--text);
+}
+
+.report-item p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.report-item img {
+  width: 100%;
+  max-height: 15rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.skeleton-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.skeleton-list span {
+  min-height: 5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.85rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  background-size: 220% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
 }
 
 .form-layout {
@@ -1237,6 +1393,15 @@ svg {
   }
 }
 
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1270,11 +1435,16 @@ svg {
   }
 
   .workflow,
+  .workflow-four,
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .project-detail {
+    position: static;
+  }
+
+  .sticky-filter {
     position: static;
   }
 }
@@ -1333,12 +1503,28 @@ svg {
 
   .feature-grid,
   .workflow,
+  .workflow-four,
   .stats-grid,
   .material-grid,
   .metric-grid,
   .metric-grid.compact,
-  .project-card-meta {
+  .project-card-meta,
+  .filter-select-grid,
+  .risk-dashboard-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-actions,
+  .button-row,
+  .reports-panel-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .btn,
+  .button-row .btn,
+  .reports-panel-header .btn {
+    width: 100%;
   }
 
   .workspace-hero,

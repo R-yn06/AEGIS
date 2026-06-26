@@ -4,11 +4,43 @@ import { Button } from '../components/ui/Button'
 import { Card } from '../components/ui/Card'
 import { Icon } from '../components/ui/Icons'
 import { useI18n } from '../contexts/I18nContext'
-import { projectService } from '../services/projectService'
-import { shortPeso, signedPercent } from '../utils/formatters'
-import type { Project, RiskClassification } from '../types'
+import { useProject } from '../hooks/useProject'
+import { useProjects } from '../hooks/useProjects'
+import { useReports } from '../hooks/useReports'
+import { shortPeso } from '../utils/formatters'
+import type { CitizenReport, Project, ProjectFilters, RiskClassification } from '../types'
 
-const riskOrder: RiskClassification[] = ['Low', 'Medium', 'High']
+const riskOptions: Array<RiskClassification | 'All'> = ['All', 'Low', 'Medium', 'High', 'Critical']
+
+function useDebouncedValue<T>(value: T, delay = 350) {
+  const [debounced, setDebounced] = React.useState(value)
+
+  React.useEffect(() => {
+    const timeout = window.setTimeout(() => setDebounced(value), delay)
+    return () => window.clearTimeout(timeout)
+  }, [delay, value])
+
+  return debounced
+}
+
+function readFiltersFromUrl(): ProjectFilters {
+  const params = new URLSearchParams(window.location.search)
+  return {
+    risk: params.get('risk') as RiskClassification | undefined,
+    region: params.get('region') || undefined,
+    category: params.get('category') || undefined,
+    search: params.get('search') || undefined,
+  }
+}
+
+function writeFiltersToUrl(filters: ProjectFilters) {
+  const params = new URLSearchParams()
+  Object.entries(filters).forEach(([key, value]) => {
+    if (value) params.set(key, value)
+  })
+  const query = params.toString()
+  window.history.replaceState({}, '', `/projects${query ? `?${query}` : ''}`)
+}
 
 function Metric({ label, value, helper }: { label: string; value: string; helper: string }) {
   return (
@@ -24,121 +56,222 @@ function ProjectCard({ project, active, onSelect }: { project: Project; active: 
   return (
     <button type="button" className={`project-card ${active ? 'active' : ''}`} onClick={onSelect}>
       <div className="project-card-header">
-        <span>{project.contract_id}</span>
-        <TrafficLight risk={project.risk_classification} compact />
+        <span>{project.contractId}</span>
+        <TrafficLight risk={project.riskClassification} compact />
       </div>
-      <h3>{project.project_title}</h3>
-      <p>{project.location}</p>
+      <h3>{project.projectTitle}</h3>
+      <p>{project.province}, {project.region}</p>
       <div className="project-card-meta">
-        <span>{shortPeso(project.contract_amount)}</span>
-        <span>{project.physical_target}</span>
-        <span>{project.citizen_upload_count}</span>
+        <span>{shortPeso(project.budget)}</span>
+        <span>{project.progress.toFixed(1)}%</span>
+        <span>{project.citizenReportCount} alerts</span>
       </div>
     </button>
   )
 }
 
-function ProjectDetail({ project, onUpload }: { project: Project; onUpload: () => void }) {
-  const { t } = useI18n()
-  const helperKey = project.risk_classification === 'High' ? 'risk.highHelper' : project.risk_classification === 'Medium' ? 'risk.mediumHelper' : 'risk.lowHelper'
+function RiskDashboard({ project }: { project: Project }) {
+  const score = Math.max(0, Math.min(100, project.riskScore))
+  const trendLabel = project.riskTrend === 'up' ? 'Rising risk' : project.riskTrend === 'down' ? 'Improving' : 'Stable'
 
+  return (
+    <div className="risk-dashboard">
+      <div className="risk-dashboard-header">
+        <TrafficLight risk={project.riskClassification} />
+        <strong>{score.toFixed(0)}/100</strong>
+      </div>
+      <div className="risk-meter" aria-label={`Risk score ${score.toFixed(0)} out of 100`}>
+        <span style={{ width: `${score}%` }} />
+      </div>
+      <div className="risk-dashboard-grid">
+        <div><span>Completion</span><strong>{project.progress.toFixed(1)}%</strong></div>
+        <div><span>Citizen alerts</span><strong>{project.citizenReportCount}</strong></div>
+        <div><span>Trend</span><strong>{trendLabel}</strong></div>
+      </div>
+    </div>
+  )
+}
+
+function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { project: Project; reports: CitizenReport[]; isReportsLoading: boolean; onUpload: () => void }) {
   return (
     <Card className="project-detail">
       <div className="detail-header">
-        <TrafficLight risk={project.risk_classification} />
-        <span>{t(helperKey)}</span>
+        <TrafficLight risk={project.riskClassification} />
+        <span>Updated {project.lastUpdated ?? 'recently'}</span>
       </div>
-      <h2>{project.project_title}</h2>
-      <p>{project.implementing_office}</p>
+      <h2>{project.projectTitle}</h2>
+      <p>{project.programName ?? project.sourceOfFunds ?? 'DPWH Infrastructure Program'}</p>
+
+      <RiskDashboard project={project} />
 
       <dl className="metric-grid">
-        <div><dt>{t('dashboard.contractAmount')}</dt><dd>{shortPeso(project.contract_amount)}</dd></div>
-        <div><dt>{t('dashboard.costDeviation')}</dt><dd>{signedPercent(project.cost_deviation_percent)}</dd></div>
-        <div><dt>{t('dashboard.scheduleSlippage')}</dt><dd>{signedPercent(project.slippage_percent)}</dd></div>
-        <div><dt>{t('dashboard.lastUpdate')}</dt><dd>{project.last_updated}</dd></div>
+        <div><dt>Contract ID</dt><dd>{project.contractId}</dd></div>
+        <div><dt>Region</dt><dd>{project.region}</dd></div>
+        <div><dt>Province</dt><dd>{project.province}</dd></div>
+        <div><dt>Municipality</dt><dd>{project.municipality ?? 'Not specified'}</dd></div>
+        <div><dt>Contractor</dt><dd>{project.contractor}</dd></div>
+        <div><dt>Budget</dt><dd>{shortPeso(project.budget)}</dd></div>
+        <div><dt>Status</dt><dd>{project.status}</dd></div>
+        <div><dt>Category</dt><dd>{project.category}</dd></div>
       </dl>
 
-      {project.anomaly_note && <div className="anomaly-banner"><Icon name="alert" />{project.anomaly_note}</div>}
+      {project.riskFlags.length > 0 && (
+        <div className="watchlist">
+          <h3>AI Risk Flags</h3>
+          {project.riskFlags.slice(0, 4).map((flag) => (
+            <div key={flag}>
+              <span>{flag}</span>
+            </div>
+          ))}
+        </div>
+      )}
 
-      <p className="analysis-panel">{project.ai_engine_analysis}</p>
+      <p className="analysis-panel">{project.aiNarrative}</p>
 
-      <div className="watchlist">
-        <h3>{t('dashboard.materialWatchlist')}</h3>
-        {project.bill_of_quantities_materials.slice(0, 3).map((material) => (
-          <div key={material.item_code}>
-            <span>{material.description}</span>
-            <strong>{signedPercent(material.item_deviation_percent)}</strong>
-          </div>
-        ))}
+      <div className="reports-panel">
+        <div className="reports-panel-header">
+          <h3>Citizen Reports</h3>
+          <Button onClick={onUpload}>Report an Issue</Button>
+        </div>
+        {isReportsLoading ? (
+          <div className="skeleton-list"><span /><span /></div>
+        ) : reports.length === 0 ? (
+          <p className="empty-inline">No citizen reports have been filed for this project yet.</p>
+        ) : (
+          reports.map((report) => <ReportItem key={report.id} report={report} />)
+        )}
       </div>
-
-      <Button onClick={onUpload}>{t('dashboard.verifyProject')}</Button>
     </Card>
+  )
+}
+
+function ReportItem({ report }: { report: CitizenReport }) {
+  return (
+    <article className="report-item">
+      <div>
+        <strong>{report.reporterName}</strong>
+        <span>{new Date(report.createdAt).toLocaleDateString()} · {report.verificationStatus}</span>
+      </div>
+      <p>{report.text}</p>
+      {report.photoUrl && <img src={report.photoUrl} alt="Citizen report evidence" loading="lazy" />}
+    </article>
+  )
+}
+
+function LoadingCards() {
+  return (
+    <div className="skeleton-list">
+      <span />
+      <span />
+      <span />
+    </div>
   )
 }
 
 export default function Dashboard({ onUpload }: { onUpload: () => void }) {
   const { t } = useI18n()
-  const projects = projectService.listProjects()
-  const metrics = projectService.getMetrics()
-  const [query, setQuery] = React.useState('')
-  const [risk, setRisk] = React.useState<RiskClassification | 'All'>('All')
-  const [selectedId, setSelectedId] = React.useState(projects[0]?.contract_id ?? '')
+  const initialFilters = React.useMemo(readFiltersFromUrl, [])
+  const [query, setQuery] = React.useState(initialFilters.search ?? '')
+  const [risk, setRisk] = React.useState<RiskClassification | 'All'>(initialFilters.risk ?? 'All')
+  const [region, setRegion] = React.useState(initialFilters.region ?? '')
+  const [category, setCategory] = React.useState(initialFilters.category ?? '')
+  const [selectedId, setSelectedId] = React.useState('')
+  const debouncedSearch = useDebouncedValue(query)
 
-  const filtered = projects.filter((project) => {
-    const searchableText = `${project.project_title} ${project.location} ${project.contract_id} ${project.contractor}`.toLowerCase()
-    return searchableText.includes(query.toLowerCase()) && (risk === 'All' || project.risk_classification === risk)
-  })
-
-  const selectedProject = projectService.getProjectById(selectedId) ?? filtered[0] ?? projects[0]
+  const filters = React.useMemo<ProjectFilters>(() => ({
+    risk: risk === 'All' ? undefined : risk,
+    region: region || undefined,
+    category: category || undefined,
+    search: debouncedSearch || undefined,
+  }), [category, debouncedSearch, region, risk])
 
   React.useEffect(() => {
-    if (filtered.length > 0 && !filtered.some((project) => project.contract_id === selectedId)) {
-      setSelectedId(filtered[0].contract_id)
+    writeFiltersToUrl(filters)
+  }, [filters])
+
+  const allProjectsQuery = useProjects()
+  const projectsQuery = useProjects(filters)
+  const projects = projectsQuery.data?.projects ?? []
+  const selectedProjectId = selectedId || projects[0]?.contractId
+  const detailQuery = useProject(selectedProjectId)
+  const reportsQuery = useReports(selectedProjectId)
+  const selectedProject = detailQuery.data ?? projects.find((project) => project.contractId === selectedProjectId)
+
+  React.useEffect(() => {
+    if (projects.length > 0 && !projects.some((project) => project.contractId === selectedId)) {
+      setSelectedId(projects[0].contractId)
     }
-  }, [filtered, selectedId])
+  }, [projects, selectedId])
+
+  const allProjects = allProjectsQuery.data?.projects ?? []
+  const regions = Array.from(new Set(allProjects.map((project) => project.region))).sort()
+  const categories = Array.from(new Set(allProjects.map((project) => project.category))).sort()
+  const totalBudget = allProjects.reduce((sum, project) => sum + project.budget, 0)
+  const highRisk = allProjects.filter((project) => project.riskClassification === 'High' || project.riskClassification === 'Critical').length
+  const reports = reportsQuery.data ?? selectedProject?.citizenReports ?? []
 
   return (
     <div className="workspace-page">
       <div className="workspace-hero">
-        <p className="eyebrow">{t('common.staticData')}</p>
+        <p className="eyebrow">Live DPWH Watchdog API</p>
         <h1>{t('dashboard.title')}</h1>
         <p>{t('dashboard.description')}</p>
       </div>
 
       <div className="metrics-row">
-        <Metric label={t('dashboard.trackedProjects')} value={String(metrics.totalProjects)} helper={t('dashboard.loadedFrom')} />
-        <Metric label={t('dashboard.contractValue')} value={shortPeso(metrics.totalBudget)} helper={t('dashboard.prototypeRecords')} />
-        <Metric label={t('dashboard.citizenSignals')} value={String(metrics.citizenReports)} helper={`${metrics.highRiskProjects} ${t('dashboard.highRiskFlagged')}`} />
+        <Metric label={t('dashboard.trackedProjects')} value={String(allProjects.length)} helper="Live project records" />
+        <Metric label={t('dashboard.contractValue')} value={shortPeso(totalBudget)} helper="Tracked public infrastructure value" />
+        <Metric label={t('dashboard.citizenSignals')} value={String(allProjects.reduce((sum, project) => sum + project.citizenReportCount, 0))} helper={`${highRisk} high or critical risk projects`} />
       </div>
 
       <div className="workspace-grid">
         <section className="workspace-list">
-          <Card className="filter-card">
+          <Card className="filter-card sticky-filter">
             <label htmlFor="project-search">{t('dashboard.searchLabel')}</label>
             <div className="search-control">
               <Icon name="search" />
               <input id="project-search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t('dashboard.searchPlaceholder')} />
             </div>
-            <div className="filter-row">
-              {(['All', ...riskOrder] as Array<RiskClassification | 'All'>).map((item) => (
+            <div className="filter-row" aria-label="Risk filter">
+              {riskOptions.map((item) => (
                 <button key={item} type="button" className={risk === item ? 'active' : ''} onClick={() => setRisk(item)}>
-                  {item === 'All' ? t('common.all') : t(`risk.${item}`)}
+                  {item}
                 </button>
               ))}
             </div>
+            <div className="filter-select-grid">
+              <select aria-label="Filter by region" className="form-control" value={region} onChange={(event) => setRegion(event.target.value)}>
+                <option value="">All regions</option>
+                {regions.map((item) => <option key={item} value={item}>{item}</option>)}
+              </select>
+              <select aria-label="Filter by category" className="form-control" value={category} onChange={(event) => setCategory(event.target.value)}>
+                <option value="">All categories</option>
+                {categories.map((item) => <option key={item} value={item}>{item}</option>)}
+              </select>
+            </div>
           </Card>
 
-          {filtered.length === 0 ? (
-            <Card className="empty-state">{t('common.empty')}</Card>
+          {projectsQuery.isLoading ? (
+            <LoadingCards />
+          ) : projectsQuery.isError ? (
+            <Card className="empty-state">
+              <p>Unable to load projects from the live API.</p>
+              <Button onClick={() => projectsQuery.refetch()}>Retry</Button>
+            </Card>
+          ) : projects.length === 0 ? (
+            <Card className="empty-state">No projects match the current filters.</Card>
           ) : (
-            filtered.map((project) => (
-              <ProjectCard key={project.contract_id} project={project} active={selectedProject.contract_id === project.contract_id} onSelect={() => setSelectedId(project.contract_id)} />
+            projects.map((project) => (
+              <ProjectCard key={project.contractId} project={project} active={selectedProject?.contractId === project.contractId} onSelect={() => setSelectedId(project.contractId)} />
             ))
           )}
         </section>
 
-        <ProjectDetail project={selectedProject} onUpload={onUpload} />
+        {selectedProject ? (
+          <ProjectDetail project={selectedProject} reports={reports} isReportsLoading={reportsQuery.isLoading} onUpload={onUpload} />
+        ) : (
+          <Card className="project-detail empty-state">Select a project to review its risk profile.</Card>
+        )}
       </div>
     </div>
   )
