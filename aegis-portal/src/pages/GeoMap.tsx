@@ -1,5 +1,4 @@
-import React from 'react'
-import { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useProjects } from '../hooks/useProjects' 
 import { useI18n } from '../contexts/I18nContext'
 import type { AppView } from '../constants/navigation'
@@ -15,10 +14,21 @@ const RISK_COLORS: Record<string, string> = {
   Critical: '#b91c1c',
 }
 
+// Global cache outside component tree memory lifecycle guarantees persistence across view unmounts
+const MAP_CACHE = {
+  center: [12.8797, 121.7740] as [number, number],
+  zoom: 6,
+  mode: 'streets' as 'streets' | 'satellite'
+}
+
 export default function GeoMap({ onNavigate }: GeoMapProps) {
   const { t } = useI18n()
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<any>(null)
+  const activeTileLayerRef = useRef<any>(null)
+
+  // Load baseline values from global application context cache directly
+  const [mapMode, setMapMode] = useState<'streets' | 'satellite'>(MAP_CACHE.mode)
 
   const { data: projectsData, isLoading, error } = useProjects()
 
@@ -33,6 +43,7 @@ export default function GeoMap({ onNavigate }: GeoMapProps) {
     (p: any) => !p.latitude || !p.longitude
   )
 
+  // 1. Initial Leaflet Map Instantiation (Runs strictly once on view mount)
   useEffect(() => {
     if (!document.getElementById('leaflet-base-css')) {
       const link = document.createElement('link')
@@ -47,7 +58,6 @@ export default function GeoMap({ onNavigate }: GeoMapProps) {
     let isMounted = true
 
     import('leaflet').then((L) => {
-      // CRITICAL GUARD: Stop if component unmounted or map initialized while import was in flight
       if (!isMounted || !mapRef.current || mapInstanceRef.current) return
 
       delete (L.Icon.Default.prototype as any)._getIconUrl
@@ -57,17 +67,51 @@ export default function GeoMap({ onNavigate }: GeoMapProps) {
         shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
       })
 
+      const philippineBounds = L.latLngBounds(
+        L.latLng(4.5, 114.5),  
+        L.latLng(21.5, 127.0)  
+      )
+
+      // Instantiates map using exactly where the user last left off in cache memory
       const map = L.map(mapRef.current, {
-        center: [11.5, 122.5],
-        zoom: 6,
+        center: MAP_CACHE.center, 
+        zoom: MAP_CACHE.zoom,
+        minZoom: 6,           
+        maxZoom: 19,          
+        maxBounds: philippineBounds, 
+        maxBoundsViscosity: 1.0,     
         zoomControl: true,
       })
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 19,
-      }).addTo(map)
+      mapInstanceRef.current = map
 
+      // Intercept movement instantly to stream data straight into memory storage
+      const storeViewState = () => {
+        const center = map.getCenter()
+        MAP_CACHE.center = [center.lat, center.lng]
+        MAP_CACHE.zoom = map.getZoom()
+      }
+
+      map.on('moveend', storeViewState)
+      map.on('zoomend', storeViewState)
+
+      // Initialize default background layer based on active setting
+      let initialLayer;
+      if (MAP_CACHE.mode === 'streets') {
+        initialLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 19,
+        })
+      } else {
+        initialLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles © Esri',
+          maxZoom: 19
+        })
+      }
+      initialLayer.addTo(map)
+      activeTileLayerRef.current = initialLayer
+
+      // Plot data markers
       mappable.forEach((project: any) => {
         const classification = project.riskClassification || 'Unknown'
         const color = RISK_COLORS[classification] ?? '#6b7280'
@@ -136,8 +180,6 @@ export default function GeoMap({ onNavigate }: GeoMapProps) {
           .addTo(map)
           .bindPopup(popupContent, { maxWidth: 300 })
       })
-
-      mapInstanceRef.current = map
     })
 
     return () => {
@@ -147,7 +189,37 @@ export default function GeoMap({ onNavigate }: GeoMapProps) {
         mapInstanceRef.current = null
       }
     }
-  }, [isLoading, error, mappable])
+  }, [isLoading, error])
+
+  // 2. Map Toggle Execution Layer
+  useEffect(() => {
+    const map = mapInstanceRef.current
+    if (!map) return
+
+    MAP_CACHE.mode = mapMode
+
+    import('leaflet').then((L) => {
+      if (activeTileLayerRef.current) {
+        map.removeLayer(activeTileLayerRef.current)
+      }
+
+      let newLayer;
+      if (mapMode === 'streets') {
+        newLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 19,
+        })
+      } else {
+        newLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles © Esri — Satellite View',
+          maxZoom: 19
+        })
+      }
+
+      newLayer.addTo(map)
+      activeTileLayerRef.current = newLayer
+    })
+  }, [mapMode])
 
   useEffect(() => {
     ;(window as any).aegisNavigateToDashboard = (contractId: string) => {
@@ -166,40 +238,74 @@ export default function GeoMap({ onNavigate }: GeoMapProps) {
       <div className="workspace-hero" style={{ marginBottom: '2rem' }}>
         <p className="eyebrow" style={{ color: '#fbbf24', textTransform: 'uppercase', fontSize: '11px', fontWeight: 600, letterSpacing: '0.05em' }}>Geospatial intelligence</p>
         <h1 style={{ fontSize: '24px', fontWeight: 700, marginTop: '0.25rem', marginBottom: '0.5rem' }}>Project location map</h1>
-        <p style={{ color: '#9ca3af', fontSize: '14px' }}>Overview of tracked infrastructure projects with risk overlays.</p>
+        <p style={{ color: '#9ca3af', fontSize: '14px' }}>Overview of tracked infrastructure projects with localized risk overlays.</p>
       </div>
 
-      {/* Legend */}
-      <div style={{ display: 'flex', gap: '1.25rem', marginBottom: '1.25rem', flexWrap: 'wrap', alignItems: 'center' }}>
-        {Object.entries(RISK_COLORS).map(([level, color]) => (
-          <div key={level} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#9ca3af' }}>
-            <div style={{ width: 12, height: 12, borderRadius: '50%', background: color, border: '2px solid #111827', boxShadow: `0 0 0 1.5px ${color}` }} />
-            {level} Risk
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem', flexWrap: 'wrap', gap: '1rem' }}>
+        <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          {Object.entries(RISK_COLORS).map(([level, color]) => (
+            <div key={level} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#9ca3af' }}>
+              <div style={{ width: 12, height: 12, borderRadius: '50%', background: color, border: '2px solid #111827', boxShadow: `0 0 0 1.5px ${color}` }} />
+              {level} Risk
+            </div>
+          ))}
+          <div style={{ fontSize: '13px', color: '#6b7280' }}>
+            {mappable.length} mapped · {noCoords.length} without coordinates
           </div>
-        ))}
-        <div style={{ marginLeft: 'auto', fontSize: '13px', color: '#6b7280' }}>
-          {mappable.length} mapped · {noCoords.length} without coordinates
+        </div>
+
+        <div style={{ display: 'flex', background: '#1e293b', padding: '4px', borderRadius: '8px', border: '1px solid #334155' }}>
+          <button 
+            type="button"
+            onClick={() => setMapMode('streets')}
+            style={{
+              padding: '6px 12px',
+              borderRadius: '6px',
+              fontSize: '12px',
+              fontWeight: 600,
+              background: mapMode === 'streets' ? '#0f172a' : 'transparent',
+              color: mapMode === 'streets' ? '#fff' : '#9ca3af',
+              border: 'none',
+              cursor: 'pointer'
+            }}
+          >
+            Vector Street Map
+          </button>
+          <button 
+            type="button"
+            onClick={() => setMapMode('satellite')}
+            style={{
+              padding: '6px 12px',
+              borderRadius: '6px',
+              fontSize: '12px',
+              fontWeight: 600,
+              background: mapMode === 'satellite' ? '#0f172a' : 'transparent',
+              color: mapMode === 'satellite' ? '#fff' : '#9ca3af',
+              border: 'none',
+              cursor: 'pointer'
+            }}
+          >
+            Satellite View (2026)
+          </button>
         </div>
       </div>
 
-      {/* Map Container - Clamped using standard absolute stacking constraints */}
-      <div
-        ref={mapRef}
-        className="relative z-0"
-        style={{
-          height: '520px',
-          borderRadius: '12px',
-          overflow: 'hidden',
-          border: '1px solid #374151',
-          boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
-          background: '#e5e7eb',
-          marginBottom: '2.5rem',
-          position: 'relative',
-          zIndex: 0
-        }}
-      />
+      <div className="relative" style={{ position: 'relative', marginBottom: '2.5rem' }}>
+        <div
+          ref={mapRef}
+          className="relative z-0"
+          style={{
+            height: '540px',
+            borderRadius: '12px',
+            overflow: 'hidden',
+            border: '1px solid #374151',
+            boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
+            background: '#e5e7eb',
+            zIndex: 0
+          }}
+        />
+      </div>
 
-      {/* Bottom Grid */}
       {noCoords.length > 0 && (
         <div>
           <h2 style={{ fontSize: '15px', fontWeight: 700, marginBottom: '0.5rem', color: '#e5e7eb' }}>
