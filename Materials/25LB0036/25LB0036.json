@@ -1,0 +1,372 @@
+{
+    "25LB0036": [
+        {
+            "Item Number": "PART B",
+            "Description": "OTHER GENERAL REQUIREMENTS",
+            "Quantity": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item Number": "B.3 (1)",
+            "Description": "Permits and Clearances",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "64,260.00",
+            "Total Amount (P)": "64,260.00"
+        },
+        {
+            "Item Number": "B.5 (1)",
+            "Description": "Project Billboard/ Signboard (8'x8' COA Billboard)",
+            "Quantity": "1.00",
+            "Unit": "each",
+            "Unit Cost (P)": "3,150.00",
+            "Total Amount (P)": "3,150.00"
+        },
+        {
+            "Item Number": "B.5 (1)",
+            "Description": "Project Billboard/ Signboard (4'x8' DPWH Billboard)",
+            "Quantity": "1.00",
+            "Unit": "each",
+            "Unit Cost (P)": "3,150.00",
+            "Total Amount (P)": "3,150.00"
+        },
+        {
+            "Item Number": "B.7 (1)",
+            "Description": "Occupational Safety and Health",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "144,900.00",
+            "Total Amount (P)": "144,900.00"
+        },
+        {
+            "Item Number": "B.9 (1)",
+            "Description": "Mobilization/Demobilization",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "56,700.00",
+            "Total Amount (P)": "56,700.00"
+        },
+        {
+            "Item Number": "PART C",
+            "Description": "EARTHWORKS",
+            "Quantity": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item Number": "803(1)a",
+            "Description": "Structure Excavation (Common Soil)",
+            "Quantity": "73.00",
+            "Unit": "cu.m",
+            "Unit Cost (P)": "441.00",
+            "Total Amount (P)": "32,193.00"
+        },
+        {
+            "Item Number": "804(1) a",
+            "Description": "Embankment from Roadway/Structure Excavation (Common Soil)",
+            "Quantity": "47.00",
+            "Unit": "cu.m",
+            "Unit Cost (P)": "315.00",
+            "Total Amount (P)": "14,805.00"
+        },
+        {
+            "Item Number": "804 (7)",
+            "Description": "Gravel Fill",
+            "Quantity": "62.00",
+            "Unit": "cu.m",
+            "Unit Cost (P)": "1,890.00",
+            "Total Amount (P)": "117,180.00"
+        },
+        {
+            "Item Number": "PART D",
+            "Description": "REINFORCED CONCRETE",
+            "Quantity": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item Number": "900 (1) c",
+            "Description": "Structural Concrete (Class A, 3000 psi at 28 days)",
+            "Quantity": "56.00",
+            "Unit": "cu.m",
+            "Unit Cost (P)": "8,946.00",
+            "Total Amount (P)": "500,976.00"
+        },
+        {
+            "Item Number": "900 (1) d",
+            "Description": "Structural Concrete (Class A, 4000 psi at 28 days)",
+            "Quantity": "30.00",
+            "Unit": "cu.m",
+            "Unit Cost (P)": "17,750.88",
+            "Total Amount (P)": "532,526.40"
+        },
+        {
+            "Item Number": "902 (1) a1",
+            "Description": "Reinforcing Steel (Deformed/Grade 40)",
+            "Quantity": "2,920.00",
+            "Unit": "kgs",
+            "Unit Cost (P)": "85.72",
+            "Total Amount (P)": "250,302.40"
+        },
+        {
+            "Item Number": "902 (1) a2",
+            "Description": "Reinforcing Steel (Deformed, Grade 60)",
+            "Quantity": "3,578.70",
+            "Unit": "kgs",
+            "Unit Cost (P)": "88.20",
+            "Total Amount (P)": "315,641.34"
+        },
+        {
+            "Item Number": "903 (2)",
+            "Description": "Formworks and Falseworks",
+            "Quantity": "188.40",
+            "Unit": "sq.m.",
+            "Unit Cost (P)": "809.46",
+            "Total Amount (P)": "152,502.26"
+        },
+        {
+            "Item Number": "PART E",
+            "Description": "FINISHINGS AND OTHER CIVIL WORKS",
+            "Quantity": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item Number": "1000 (1)",
+            "Description": "Soil Poisoning",
+            "Quantity": "45.00",
+            "Unit": "liters",
+            "Unit Cost (P)": "693.00",
+            "Total Amount (P)": "31,185.00"
+        },
+        {
+            "Item Number": "1001 (5) b",
+            "Description": "Catch Basin (CHB)",
+            "Quantity": "14.00",
+            "Unit": "each",
+            "Unit Cost (P)": "10,080.00",
+            "Total Amount (P)": "141,120.00"
+        },
+        {
+            "Item Number": "1001 (9)",
+            "Description": "Storm Drainage and Downspout",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "90,720.00",
+            "Total Amount (P)": "90,720.00"
+        },
+        {
+            "Item Number": "1004 (2)",
+            "Description": "Finishing Hardware",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "44,100.00",
+            "Total Amount (P)": "44,100.00"
+        },
+        {
+            "Item Number": "1013 (2) a",
+            "Description": "Fabricated Metal Roofing Accessory (Ridge/Hip Rolls - Gauge 26)(0.551 mm)",
+            "Quantity": "31.00",
+            "Unit": "ln.m.",
+            "Unit Cost (P)": "756.00",
+            "Total Amount (P)": "23,436.00"
+        },
+        {
+            "Item Number": "1013 (2) c",
+            "Description": "Fabricated Metal Roofing Accessory (Gutters - Gauge 24)(0.701 mm)",
+            "Quantity": "63.00",
+            "Unit": "ln.m.",
+            "Unit Cost (P)": "806.40",
+            "Total Amount (P)": "50,803.20"
+        },
+        {
+            "Item Number": "1014 (1) b2",
+            "Description": "Prepainted Metal Sheets (Rib Type - Long Span, above 0.427 mm thk)",
+            "Quantity": "704.00",
+            "Unit": "sq.m",
+            "Unit Cost (P)": "806.40",
+            "Total Amount (P)": "567,705.60"
+        },
+        {
+            "Item Number": "1021 (1) a",
+            "Description": "Cement Floor Finish (Plain)",
+            "Quantity": "559.00",
+            "Unit": "sq.m",
+            "Unit Cost (P)": "498.96",
+            "Total Amount (P)": "278,918.64"
+        },
+        {
+            "Item Number": "1027 (1)",
+            "Description": "Cement Plaster Finish",
+            "Quantity": "45.00",
+            "Unit": "sq.m",
+            "Unit Cost (P)": "255.78",
+            "Total Amount (P)": "11,510.10"
+        },
+        {
+            "Item Number": "1032 (1) a",
+            "Description": "Painting Works (Masonry/Concrete - Rubberized Paint)",
+            "Quantity": "540.00",
+            "Unit": "sq.m",
+            "Unit Cost (P)": "594.72",
+            "Total Amount (P)": "321,148.80"
+        },
+        {
+            "Item Number": "1032 (1) a",
+            "Description": "Painting Works (Masonry/Concrete)",
+            "Quantity": "45.00",
+            "Unit": "sq.m",
+            "Unit Cost (P)": "281.75",
+            "Total Amount (P)": "12,678.75"
+        },
+        {
+            "Item Number": "1032 (1) c",
+            "Description": "Painting Works (Steel)",
+            "Quantity": "1,037.40",
+            "Unit": "sq.m",
+            "Unit Cost (P)": "441.00",
+            "Total Amount (P)": "457,493.40"
+        },
+        {
+            "Item Number": "1047 (2)",
+            "Description": "Metal Structures (Aluminum Louver)",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "618,004.30",
+            "Total Amount (P)": "618,004.30"
+        },
+        {
+            "Item Number": "1047 (4) a",
+            "Description": "Metal Structure Accessories (Bolts and Rods) (Anchor Bolts)",
+            "Quantity": "84.00",
+            "Unit": "each",
+            "Unit Cost (P)": "144.90",
+            "Total Amount (P)": "12,171.60"
+        },
+        {
+            "Item Number": "1047 (4) b",
+            "Description": "Metal Structure Accessories (Turnbuckle)",
+            "Quantity": "24.00",
+            "Unit": "each",
+            "Unit Cost (P)": "415.80",
+            "Total Amount (P)": "9,979.20"
+        },
+        {
+            "Item Number": "1047 (5) b",
+            "Description": "Metal Structure Accessories (Sagrods)",
+            "Quantity": "320.20",
+            "Unit": "kgs",
+            "Unit Cost (P)": "81.90",
+            "Total Amount (P)": "26,224.38"
+        },
+        {
+            "Item Number": "1047 (5) c",
+            "Description": "Metal Structure Accessories (Cross Bracing)",
+            "Quantity": "213.00",
+            "Unit": "kgs",
+            "Unit Cost (P)": "132.30",
+            "Total Amount (P)": "28,179.90"
+        },
+        {
+            "Item Number": "1047 (5) d",
+            "Description": "Metal Structure Accessories (Steel Plates)",
+            "Quantity": "351.70",
+            "Unit": "kgs",
+            "Unit Cost (P)": "132.30",
+            "Total Amount (P)": "46,529.91"
+        },
+        {
+            "Item Number": "1047 (6)",
+            "Description": "Structural Steel",
+            "Quantity": "24,907.60",
+            "Unit": "kgs",
+            "Unit Cost (P)": "151.20",
+            "Total Amount (P)": "3,766,029.12"
+        },
+        {
+            "Item Number": "1047 (7)",
+            "Description": "Structural Steel (Hanging Goal)",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "63,000.00",
+            "Total Amount (P)": "63,000.00"
+        },
+        {
+            "Item Number": "1047 (8) b",
+            "Description": "Structural Steel (Purlins)",
+            "Quantity": "5,605.00",
+            "Unit": "kgs",
+            "Unit Cost (P)": "119.70",
+            "Total Amount (P)": "670,918.50"
+        },
+        {
+            "Item Number": "1048 (4)",
+            "Description": "Glass Fiber (Basketball Goal Board and Its Accessories)",
+            "Quantity": "4.00",
+            "Unit": "sq.m",
+            "Unit Cost (P)": "20,790.00",
+            "Total Amount (P)": "83,160.00"
+        },
+        {
+            "Item Number": "1722 (1) c",
+            "Description": "Fence (Cyclone/Welded Wire)",
+            "Quantity": "183.60",
+            "Unit": "sq.m",
+            "Unit Cost (P)": "252.00",
+            "Total Amount (P)": "46,267.20"
+        },
+        {
+            "Item Number": "PART F",
+            "Description": "ELECTRICAL",
+            "Quantity": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item Number": "1100 (10)",
+            "Description": "Conduits, Boxes & Fittings (Conduit Works/ Conduit Rough in)",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "126,630.00",
+            "Total Amount (P)": "126,630.00"
+        },
+        {
+            "Item Number": "1101 (33)",
+            "Description": "Wires and Wiring Devices",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "50,400.00",
+            "Total Amount (P)": "50,400.00"
+        },
+        {
+            "Item Number": "1102 (1)",
+            "Description": "Panel Board w/ Main & Branch Breakers",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "37,800.00",
+            "Total Amount (P)": "37,800.00"
+        },
+        {
+            "Item Number": "1103 (1)",
+            "Description": "Lighting Fixtures",
+            "Quantity": "1.00",
+            "Unit": "l.s",
+            "Unit Cost (P)": "75,600.00",
+            "Total Amount (P)": "75,600.00"
+        },
+        {
+            "Item Number": "GRAND TOTAL",
+            "Description": "",
+            "Quantity": "",
+            "Unit": "",
+            "Unit Cost (P)": "",
+            "Total Amount (P)": "9,880,000.00"
+        }
+    ]
+}
