@@ -1,0 +1,37 @@
+Item No.,Description,Unit,Quantity,Unit Price (P),Total Amount (P)
+Part B,Other General Requirements,,,,
+B.3(1),Permits and Clearances,l.s.,1.00,"126,000.00","126,000.00"
+B.5(1),Project Billboard/ Signboard,each,3.00,"3,777.27","11,331.81"
+B.7(1),Occupational Safety and Health,l.s.,1.00,"122,094.00","122,094.00"
+B.9(1),Mobilization/ Demobilization,l.s.,1.00,"126,000.00","126,000.00"
+Part C,Earthwork,,,,
+801(1),Removal of Structures and Obstruction,l.s.,1.00,"41,161.68","41,161.68"
+803(1)a,Structure Excavation (Common Soil),cu.m.,143.02,381.99,"54,632.21"
+804(1)a,Embankment from Roadway/Structure Excavation (Common Soil),cu.m.,60.72,255.24,"15,498.17"
+804(7),Gravel Fill,cu.m.,61.24,"1,811.40","110,930.14"
+Part D,Reinforced Concrete,,,,
+900(1)d,"Structural Concrete (4000 psi, Class A, 28 days)",cu.m.,130.32,"12,657.53","1,649,529.31"
+902(1)a1,"Reinforcing Steel (Deformed) - Grade 40",kg,"7,410.31",113.93,"844,256.62"
+902(1)a2,"Reinforcing Steel (Deformed), Grade 60",kg,"1,535.76",122.71,"188,453.11"
+903(2),Formworks and Falseworks,sq.m.,183.12,662.56,"121,327.99"
+Part E,Finishing and Other Civil Works,,,,
+1004(2),Finishing Hardware,l.s.,1.00,"39,450.60","39,450.60"
+1013(2)a,"Fabricated Metal Roofing Accessory (Gauge26 (0.551mm) Ridge/Hip Rolls)",l.m.,33.00,234.47,"7,737.51"
+1014(1)b2,"Pre-painted Metal Sheets (above 0.427mm, Rib Type, Long Span)",sq.m.,"1,171.92",619.89,"726,461.49"
+1027(1),Cement Plaster Finish,sq.m.,"1,360.00",335.66,"456,497.60"
+1032(1)a,Painting Works (Masonry/Concrete),sq.m.,"1,369.60",462.66,"633,659.14"
+1032(1)c,Painting Works (Steel),sq.m.,942.57,488.16,"460,124.97"
+1046(2)a1,"CHB Non-Load Bearing (including Reinforcing Steel) 100mm",sq.m.,440.00,"1,585.72","697,716.80"
+1047(2),Metal Structures,l.s.,1.00,"1,866,191.04","1,866,191.04"
+1047(4)b,Metal Structures Accessories Turnbuckle(),each,20.00,298.46,"5,969.20"
+1047(5)a,Metal Structure Accessories (Bolts and Rods),kg,202.32,195.38,"39,529.28"
+1047(5)b,Metal Structure Accessories (Sagrods),kg,161.10,192.59,"31,026.25"
+1047(5)c,Metal Structure Accessories (Cross Bracing),kg,161.10,312.29,"50,309.92"
+1047(5)d,Metal Structure Accessories (Steel Plates),kg,"1,026.83",190.00,"195,097.70"
+1047(8)b,Structural Steel (Purlins),kg,"5,697.22",117.47,"669,252.43"
+Part F,Electrical,,,,
+1100(10),"Conduits, Boxes & Fittings (Conduit Works/Conduit Rough-in)",l.s.,1.00,"98,841.96","98,841.96"
+1101(33),Wires and Wiring Devices,l.s.,1.00,"299,411.28","299,411.28"
+1102(1),Panelboard with Main & Branch Breakers,l.s.,1.00,"96,138.00","96,138.00"
+1103(1),Lighting Fixtures,l.s.,1.00,"64,512.00","64,512.00"
+Grand Total,,,,,"9,849,142.21"
