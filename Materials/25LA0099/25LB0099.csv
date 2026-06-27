@@ -1,0 +1,35 @@
+Item No.,Description,Unit,Quantity,Unit Price (P),Total Amount (P)
+Part A,Facilities for the Engineer,,,,
+A.1.1(3),Construction of Field Office for the Engineer,l.s.,1.00,"166,412.93","166,412.93"
+A.1.2(2),Provision of 4x4 Pickup Type Service Vehicle for the Engineer on Bare Rental Basis,month,4.43,"55,301.40","244,985.20"
+A.1.2(5),Operation and Maintenance of 4x4 Pickup Type Service Vehicle for the Engineer,month,4.43,"32,139.45","142,377.76"
+Part B,Other General Requirements,,,,
+B.4(1),Construction Survey and Staking,km,0.45,"28,249.20","12,712.14"
+B.5,Project Billboard / Signboard,each,4.00,"4,730.85","18,923.40"
+B.7(2),Occupational Safety and Health Program,l.s.,1.00,"170,979.50","170,979.50"
+B.8(2),Traffic Management,l.s.,1.00,"202,336.90","202,336.90"
+B.9,Mobilization / Demobilization,l.s.,1.00,"203,490.00","203,490.00"
+Part C,Earthwork,,,,
+100(1),Clearing and Grubbing,ha,1.28,"41,392.40","52,982.27"
+102(2),Surplus Common Excavation,cu.m.,"89,126.75",196.80,"17,540,144.40"
+103(1)a,Structure Excavation (Common Soil),cu.m.,198.96,476.13,"94,730.82"
+103(3),Foundation Fill,cu.m.,36.95,"2,965.38","109,570.79"
+103(6)a,Pipe Culvert and Drain Excavation (Common Soil),cu.m.,906.18,291.15,"263,834.31"
+104(1)a,Embankment from Roadway/Structure Excavation (Common Soil),cu.m.,374.80,445.68,"167,040.86"
+105(1)a,Subgrade Preparation (Common Material),sq.m.,"4,030.08",51.81,"208,798.44"
+Part D,Subbase and Base Course,,,,
+200(1),Aggregate Subbase Course,cu.m.,"1,119.37","1,332.42","1,491,470.98"
+Part E,Surface Courses,,,,
+311(1)a,"Portland Cement Concrete Pavement (Unreinforced), 0.15m thick (14 days)",sq.m.,675.00,"1,244.05","839,733.75"
+311(1)c1,"Portland Cement Concrete Pavement (Unreinforced), 0.23m thick (14 days)",sq.m.,"2,745.00","1,797.03","4,932,847.35"
+Part F,Bridge Construction,,,,
+404(1)a,"Reinforcing Steel, Grade 40",kg,"3,538.55",139.95,"495,220.07"
+405(1)b2,"Structural Concrete, 27.58 Mpa Class ""A"" (14 Days)",cu.m.,148.40,"7,324.48","1,086,952.83"
+Part G,Drainage & Slope Protection Structures,,,,
+500(1)d,"Pipe Culverts, Class IV (RCPC)",lin.m.,22.00,"10,906.39","239,940.58"
+505(2)a,"Grouted Riprap (Class ""A"")",cu.m.,41.52,"4,465.33","185,400.50"
+506(1),Stone Masonry,cu.m.,14.50,"4,297.04","62,307.08"
+Part H,Miscellaneous Structures,,,,
+612(1),Reflectorized Thermoplastic Pavement Markings White,sq.m.,109.80,"1,141.49","125,335.60"
+612(2),Reflectorized Thermoplastic Pavement Markings Yellow,sq.m.,22.80,"2,067.99","47,150.17"
+GRAND TOTAL,,,,,29105678.63
