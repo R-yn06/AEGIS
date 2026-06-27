@@ -44,7 +44,7 @@ def convert_csvs_to_json(input_directory: str, output_filepath: str) -> None:
 if __name__ == "__main__":
     # Based on your VS Code explorer, your folder name is likely '25LH0051'
     # Adjust this path if the script is running from a different directory
-    INPUT_FOLDER = "C:\\Users\\Ralf\\OneDrive\\Documents\\GitHub\\AEGIS\\Materials\\25LB0036" 
+    INPUT_FOLDER = "C:\\Users\\Ralf\\OneDrive\\Documents\\GitHub\\AEGIS\\Materials\\25LA0099" 
     OUTPUT_JSON_FILE = "compiled_materials_data.json"
     
     convert_csvs_to_json(INPUT_FOLDER, OUTPUT_JSON_FILE)

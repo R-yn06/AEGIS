@@ -1,0 +1,276 @@
+{
+    "25LB0099": [
+        {
+            "Item No.": "Part A",
+            "Description": "Facilities for the Engineer",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item No.": "A.1.1(3)",
+            "Description": "Construction of Field Office for the Engineer",
+            "Unit": "l.s.",
+            "Quantity": "1.00",
+            "Unit Price (P)": "166,412.93",
+            "Total Amount (P)": "166,412.93"
+        },
+        {
+            "Item No.": "A.1.2(2)",
+            "Description": "Provision of 4x4 Pickup Type Service Vehicle for the Engineer on Bare Rental Basis",
+            "Unit": "month",
+            "Quantity": "4.43",
+            "Unit Price (P)": "55,301.40",
+            "Total Amount (P)": "244,985.20"
+        },
+        {
+            "Item No.": "A.1.2(5)",
+            "Description": "Operation and Maintenance of 4x4 Pickup Type Service Vehicle for the Engineer",
+            "Unit": "month",
+            "Quantity": "4.43",
+            "Unit Price (P)": "32,139.45",
+            "Total Amount (P)": "142,377.76"
+        },
+        {
+            "Item No.": "Part B",
+            "Description": "Other General Requirements",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item No.": "B.4(1)",
+            "Description": "Construction Survey and Staking",
+            "Unit": "km",
+            "Quantity": "0.45",
+            "Unit Price (P)": "28,249.20",
+            "Total Amount (P)": "12,712.14"
+        },
+        {
+            "Item No.": "B.5",
+            "Description": "Project Billboard / Signboard",
+            "Unit": "each",
+            "Quantity": "4.00",
+            "Unit Price (P)": "4,730.85",
+            "Total Amount (P)": "18,923.40"
+        },
+        {
+            "Item No.": "B.7(2)",
+            "Description": "Occupational Safety and Health Program",
+            "Unit": "l.s.",
+            "Quantity": "1.00",
+            "Unit Price (P)": "170,979.50",
+            "Total Amount (P)": "170,979.50"
+        },
+        {
+            "Item No.": "B.8(2)",
+            "Description": "Traffic Management",
+            "Unit": "l.s.",
+            "Quantity": "1.00",
+            "Unit Price (P)": "202,336.90",
+            "Total Amount (P)": "202,336.90"
+        },
+        {
+            "Item No.": "B.9",
+            "Description": "Mobilization / Demobilization",
+            "Unit": "l.s.",
+            "Quantity": "1.00",
+            "Unit Price (P)": "203,490.00",
+            "Total Amount (P)": "203,490.00"
+        },
+        {
+            "Item No.": "Part C",
+            "Description": "Earthwork",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item No.": "100(1)",
+            "Description": "Clearing and Grubbing",
+            "Unit": "ha",
+            "Quantity": "1.28",
+            "Unit Price (P)": "41,392.40",
+            "Total Amount (P)": "52,982.27"
+        },
+        {
+            "Item No.": "102(2)",
+            "Description": "Surplus Common Excavation",
+            "Unit": "cu.m.",
+            "Quantity": "89,126.75",
+            "Unit Price (P)": "196.80",
+            "Total Amount (P)": "17,540,144.40"
+        },
+        {
+            "Item No.": "103(1)a",
+            "Description": "Structure Excavation (Common Soil)",
+            "Unit": "cu.m.",
+            "Quantity": "198.96",
+            "Unit Price (P)": "476.13",
+            "Total Amount (P)": "94,730.82"
+        },
+        {
+            "Item No.": "103(3)",
+            "Description": "Foundation Fill",
+            "Unit": "cu.m.",
+            "Quantity": "36.95",
+            "Unit Price (P)": "2,965.38",
+            "Total Amount (P)": "109,570.79"
+        },
+        {
+            "Item No.": "103(6)a",
+            "Description": "Pipe Culvert and Drain Excavation (Common Soil)",
+            "Unit": "cu.m.",
+            "Quantity": "906.18",
+            "Unit Price (P)": "291.15",
+            "Total Amount (P)": "263,834.31"
+        },
+        {
+            "Item No.": "104(1)a",
+            "Description": "Embankment from Roadway/Structure Excavation (Common Soil)",
+            "Unit": "cu.m.",
+            "Quantity": "374.80",
+            "Unit Price (P)": "445.68",
+            "Total Amount (P)": "167,040.86"
+        },
+        {
+            "Item No.": "105(1)a",
+            "Description": "Subgrade Preparation (Common Material)",
+            "Unit": "sq.m.",
+            "Quantity": "4,030.08",
+            "Unit Price (P)": "51.81",
+            "Total Amount (P)": "208,798.44"
+        },
+        {
+            "Item No.": "Part D",
+            "Description": "Subbase and Base Course",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item No.": "200(1)",
+            "Description": "Aggregate Subbase Course",
+            "Unit": "cu.m.",
+            "Quantity": "1,119.37",
+            "Unit Price (P)": "1,332.42",
+            "Total Amount (P)": "1,491,470.98"
+        },
+        {
+            "Item No.": "Part E",
+            "Description": "Surface Courses",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item No.": "311(1)a",
+            "Description": "Portland Cement Concrete Pavement (Unreinforced), 0.15m thick (14 days)",
+            "Unit": "sq.m.",
+            "Quantity": "675.00",
+            "Unit Price (P)": "1,244.05",
+            "Total Amount (P)": "839,733.75"
+        },
+        {
+            "Item No.": "311(1)c1",
+            "Description": "Portland Cement Concrete Pavement (Unreinforced), 0.23m thick (14 days)",
+            "Unit": "sq.m.",
+            "Quantity": "2,745.00",
+            "Unit Price (P)": "1,797.03",
+            "Total Amount (P)": "4,932,847.35"
+        },
+        {
+            "Item No.": "Part F",
+            "Description": "Bridge Construction",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item No.": "404(1)a",
+            "Description": "Reinforcing Steel, Grade 40",
+            "Unit": "kg",
+            "Quantity": "3,538.55",
+            "Unit Price (P)": "139.95",
+            "Total Amount (P)": "495,220.07"
+        },
+        {
+            "Item No.": "405(1)b2",
+            "Description": "Structural Concrete, 27.58 Mpa Class \"A\" (14 Days)",
+            "Unit": "cu.m.",
+            "Quantity": "148.40",
+            "Unit Price (P)": "7,324.48",
+            "Total Amount (P)": "1,086,952.83"
+        },
+        {
+            "Item No.": "Part G",
+            "Description": "Drainage & Slope Protection Structures",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item No.": "500(1)d",
+            "Description": "Pipe Culverts, Class IV (RCPC)",
+            "Unit": "lin.m.",
+            "Quantity": "22.00",
+            "Unit Price (P)": "10,906.39",
+            "Total Amount (P)": "239,940.58"
+        },
+        {
+            "Item No.": "505(2)a",
+            "Description": "Grouted Riprap (Class \"A\")",
+            "Unit": "cu.m.",
+            "Quantity": "41.52",
+            "Unit Price (P)": "4,465.33",
+            "Total Amount (P)": "185,400.50"
+        },
+        {
+            "Item No.": "506(1)",
+            "Description": "Stone Masonry",
+            "Unit": "cu.m.",
+            "Quantity": "14.50",
+            "Unit Price (P)": "4,297.04",
+            "Total Amount (P)": "62,307.08"
+        },
+        {
+            "Item No.": "Part H",
+            "Description": "Miscellaneous Structures",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": ""
+        },
+        {
+            "Item No.": "612(1)",
+            "Description": "Reflectorized Thermoplastic Pavement Markings White",
+            "Unit": "sq.m.",
+            "Quantity": "109.80",
+            "Unit Price (P)": "1,141.49",
+            "Total Amount (P)": "125,335.60"
+        },
+        {
+            "Item No.": "612(2)",
+            "Description": "Reflectorized Thermoplastic Pavement Markings Yellow",
+            "Unit": "sq.m.",
+            "Quantity": "22.80",
+            "Unit Price (P)": "2,067.99",
+            "Total Amount (P)": "47,150.17"
+        },
+        {
+            "Item No.": "GRAND TOTAL",
+            "Description": "",
+            "Unit": "",
+            "Quantity": "",
+            "Unit Price (P)": "",
+            "Total Amount (P)": "29105678.63"
+        }
+    ]
+}
