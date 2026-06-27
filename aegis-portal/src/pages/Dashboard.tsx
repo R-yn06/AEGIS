@@ -108,11 +108,41 @@ function RiskDashboard({ project }: { project: Project }) {
   )
 }
 
-function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { project: Project; reports: CitizenReport[]; isReportsLoading: boolean; onUpload: () => void }) {
+function ProjectDetail({ 
+  project, 
+  reports, 
+  isReportsLoading, 
+  onUpload,
+  isExpanded,
+  onToggleExpand
+}: { 
+  project: Project; 
+  reports: CitizenReport[]; 
+  isReportsLoading: boolean; 
+  onUpload: () => void;
+  isExpanded: boolean;
+  onToggleExpand: () => void;
+}) {
   return (
     <Card 
-      className="project-detail"
-      style={{
+      className={`project-detail ${isExpanded ? 'fullscreen-detail' : ''}`}
+      style={isExpanded ? {
+        position: 'fixed',
+        top: '3rem',
+        left: '5rem',
+        right: '5rem',
+        bottom: '3rem',
+        width: 'calc(100vw - 10rem)',
+        height: 'calc(100vh - 6rem)',
+        maxHeight: 'calc(100vh - 6rem)',
+        zIndex: 9999,
+        overflowY: 'auto',
+        borderRadius: '12px',
+        padding: '2.5rem',
+        backgroundColor: '#1a1a1e',
+        boxShadow: '0 25px 60px rgba(0, 0, 0, 0.65)',
+        border: '1px solid rgba(255, 255, 255, 0.12)',
+      } : {
         position: 'sticky',
         top: '1.5rem',
         maxHeight: 'calc(100vh - 3rem)',
@@ -136,18 +166,51 @@ function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { proje
         .project-detail::-webkit-scrollbar-thumb:hover {
           background-color: rgba(255, 255, 255, 0.25); 
         }
+        .expand-toggle-btn {
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          color: rgba(255, 255, 255, 0.85);
+          cursor: pointer;
+          border-radius: 6px;
+          width: 32px;
+          height: 32px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.15rem;
+          line-height: 1;
+          transition: all 0.2s ease;
+        }
+        .expand-toggle-btn:hover {
+          background: rgba(255, 255, 255, 0.15);
+          color: #fff;
+          transform: scale(1.05);
+        }
       `}</style>
 
-      <div className="detail-header">
-        <TrafficLight risk={project.riskClassification} />
-        <span>Updated {(project as any).lastUpdated ?? 'recently'}</span>
+      <div className="detail-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <TrafficLight risk={project.riskClassification} />
+          <span>Updated {(project as any).lastUpdated ?? 'recently'}</span>
+        </div>
+        
+        {/* Directly using symbol toggles ensures type safety without icon library restrictions */}
+        <button 
+          type="button" 
+          className="expand-toggle-btn" 
+          onClick={onToggleExpand}
+          title={isExpanded ? 'Minimize' : 'Full Screen'}
+        >
+          {isExpanded ? '⤡' : '⤢'}
+        </button>
       </div>
-      <h2>{project.projectTitle}</h2>
+
+      <h2 style={isExpanded ? { fontSize: '2.5rem', marginTop: '1.5rem' } : {}}>{project.projectTitle}</h2>
       <p>{(project as any).programName ?? project.sourceOfFunds ?? 'DPWH Infrastructure Program'}</p>
 
       <RiskDashboard project={project} />
 
-      <dl className="metric-grid">
+      <dl className="metric-grid" style={isExpanded ? { gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.5rem' } : {}}>
         <div><dt>Contract ID</dt><dd>{project.contractId}</dd></div>
         <div><dt>Region</dt><dd>{project.region}</dd></div>
         <div><dt>Province</dt><dd>{project.province}</dd></div>
@@ -173,7 +236,7 @@ function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { proje
         </div>
       )}
 
-      <p className="analysis-panel">{(project as any).aiNarrative}</p>
+      <p className="analysis-panel" style={isExpanded ? { fontSize: '1.1rem', lineHeight: '1.6' } : {}}>{(project as any).aiNarrative}</p>
 
       <div className="reports-panel">
         <div className="reports-panel-header">
@@ -185,7 +248,9 @@ function ProjectDetail({ project, reports, isReportsLoading, onUpload }: { proje
         ) : reports.length === 0 ? (
           <p className="empty-inline">No citizen reports have been filed for this project yet.</p>
         ) : (
-          reports.map((report) => <ReportItem key={report.id} report={report} />)
+          <div style={isExpanded ? { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' } : {}}>
+            {reports.map((report) => <ReportItem key={report.id} report={report} />)}
+          </div>
         )}
       </div>
     </Card>
@@ -243,6 +308,7 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
   const [category, setCategory] = React.useState(initialFilters.category ?? '')
   const debouncedSearch = useDebouncedValue(query)
   
+  const [isDetailExpanded, setIsDetailExpanded] = React.useState(false)
   const activeCardRef = useRef<HTMLButtonElement>(null)
 
   const filters = React.useMemo<ProjectFilters>(() => ({
@@ -265,10 +331,11 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
   const reportsQuery = useReports(activeProjectId)
   const { refetch: refetchReports } = reportsQuery
 
-  const selectedProject = detailQuery.data ?? projects.find((project) => project.contractId === activeProjectId)
+  // Explicitly typing '(project: Project)' clears the implicit 'any' compiler blocks
+  const selectedProject = detailQuery.data ?? projects.find((project: Project) => project.contractId === activeProjectId)
 
   React.useEffect(() => {
-    if (projects.length > 0 && !projects.some((project) => project.contractId === selectedProjectId)) {
+    if (projects.length > 0 && !projects.some((project: Project) => project.contractId === selectedProjectId)) {
       onSelectProject(projects[0].contractId)
     }
   }, [projects, selectedProjectId, onSelectProject])
@@ -282,6 +349,10 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
         })
       }, 100)
     }
+  }, [selectedProjectId])
+
+  useEffect(() => {
+    setIsDetailExpanded(false)
   }, [selectedProjectId])
 
   const handleUploadClick = async () => {
@@ -313,7 +384,6 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
         <Metric label={t('dashboard.citizenSignals')} value={String(totalAlerts)} helper={`${highRisk} high or critical risk projects`} />
       </div>
 
-      {/* Added 'alignItems: start' style block here to correctly allow independent scrolling tracking */}
       <div className="workspace-grid" style={{ alignItems: 'start' }}>
         <section className="workspace-list">
           <Card className="filter-card">
@@ -367,7 +437,14 @@ export default function Dashboard({ onUpload, selectedProjectId, onSelectProject
         </section>
 
         {selectedProject ? (
-          <ProjectDetail project={selectedProject} reports={reports} isReportsLoading={reportsQuery.isLoading} onUpload={handleUploadClick} />
+          <ProjectDetail 
+            project={selectedProject} 
+            reports={reports} 
+            isReportsLoading={reportsQuery.isLoading} 
+            onUpload={handleUploadClick} 
+            isExpanded={isDetailExpanded}
+            onToggleExpand={() => setIsDetailExpanded(!isDetailExpanded)}
+          />
         ) : (
           <Card className="project-detail empty-state">Select a project to review its risk profile.</Card>
         )}
